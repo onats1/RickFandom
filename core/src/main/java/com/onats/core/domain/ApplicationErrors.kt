@@ -1,9 +1,6 @@
 package com.onats.core.domain
 import androidx.annotation.StringRes
 
-
-
-
 sealed class ApplicationError {
 
     data class NetworkError(
@@ -11,8 +8,6 @@ sealed class ApplicationError {
         val errorCode: Int? = null,
         val errorException: Exception? = null
     ): ApplicationError() {
-
-
 
         companion object {
             val defaultError = NetworkError(

@@ -9,6 +9,7 @@ dependencies {
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.KOTLIN_COROUTINES)
     implementation(Dependencies.KOTLIN_STANDARD_LIBRARY)
+    implementation 'androidx.annotation:annotation:1.2.0'
 }
 
 java {

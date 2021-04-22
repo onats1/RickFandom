@@ -1,4 +1,6 @@
-package com.onats.core.characters.util
+package com.onats.util
+
+import com.onats.core.domain.ApplicationError
 
 data class DataState<T, E: ApplicationError>(
     val error: E?,
