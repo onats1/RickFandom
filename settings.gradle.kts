@@ -11,4 +11,4 @@ include(":app")
 include(":features:characters")
 include(":features:episodes")
 include(":features:location")
-include(":core-android")
+
