@@ -1,5 +1,4 @@
 package com.onats.core.domain
-import androidx.annotation.StringRes
 
 sealed class ApplicationError {
 
@@ -18,7 +17,7 @@ sealed class ApplicationError {
     }
 
     data class UIError(
-        @StringRes val errorMessage: Int,
+        val errorMessage: String,
         val displayMode: UIErrorDisplayMode
     ): ApplicationError(){
         companion object {
