@@ -24,6 +24,9 @@ object Dependencies {
     const val COMPOSE_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE_VERSION}"
     const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${Versions.ACTIVITY_COMPOSE_VERSION}"
 
+    //Jetpack Compose Navigation
+    const val COMPOSE_NAV = "androidx.navigation:navigation-compose:1.0.0-alpha10"
+
 
     //Lifecycle components
     const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE_RUNTIME_VERSION}"
@@ -55,6 +58,7 @@ object Plugins {
 
 object Versions {
     const val BUILD_TOOLS_VERSION = "30.0.3"
+    const val COMPOSE_NAV_VERSION = "1.0.0-alpha10"
     const val KTX_VERSION = "1.3.2"
     const val KOTLIN = "1.3.21"
     const val APPCOMPAT_VERSION = "1.2.0"

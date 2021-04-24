@@ -7,9 +7,12 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "RickFandom"
-include(":app")
-include(":features:characters")
-include(":features:episodes")
-include(":features:location")
-include(":core")
-include(":core-android")
+include(
+    ":app",
+    ":features:characters",
+    ":features:episodes",
+    ":features:location",
+    ":core",
+    ":core-android"
+)
+

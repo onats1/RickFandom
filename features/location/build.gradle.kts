@@ -20,6 +20,16 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.COMPOSE_VERSION
+        kotlinCompilerVersion = Versions.KOTLIN_GRADLE_VERSION
+    }
 }
 
 dependencies {
@@ -30,4 +40,9 @@ dependencies {
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)
+
+    implementation(Dependencies.COMPOSE_UI)
+    implementation(Dependencies.COMPOSE_MATERIAL)
+    implementation(Dependencies.COMPOSE_TOOLING)
+    implementation(Dependencies.COMPOSE_NAV)
 }
