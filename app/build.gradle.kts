@@ -57,6 +57,7 @@ dependencies {
     implementation(Dependencies.LIFECYCLE_RUNTIME)
     implementation(Dependencies.ACTIVITY_COMPOSE)
     implementation(Dependencies.COMPOSE_NAV)
+    implementation("androidx.navigation:navigation-runtime:2.3.5")
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)
