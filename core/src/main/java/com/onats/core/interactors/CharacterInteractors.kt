@@ -1,9 +1,18 @@
 package com.onats.core.interactors
 
+import com.onats.util.PreResolve
+import kotlinx.coroutines.flow.Flow
+
 //Identifiers for character use cases.
 
-interface GetAllCharactersUseCase
+typealias GetAllCharactersUseCase<Data> = UseCase<Data>
 
-interface GetSingleCharacterUseCase
+typealias GetSingleCharacterUseCase<Data> = UseCase<Data>
 
-interface SearchCharacterUseCase
+typealias SearchCharacterUseCase<Data> = UseCase<Data>
+
+interface UseCase<T: Any> {
+
+    suspend fun execute(): Flow<PreResolve<T>>
+}
+
