@@ -32,7 +32,8 @@ android {
 }
 
 dependencies {
-
+    implementation(project(Libraries.CORE))
+    implementation(project(Libraries.CORE_ANDROID))
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)

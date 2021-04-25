@@ -1,4 +1,4 @@
-package com.onats.rickfandom.ui.theme
+package com.onats.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
