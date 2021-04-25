@@ -43,6 +43,11 @@ android {
 
 dependencies {
 
+    implementation(project(Libraries.CORE))
+    implementation(project(Libraries.CORE_ANDROID))
+    implementation(project(Libraries.LOCATION_LIB))
+    implementation(project(Libraries.EPISODES_LIB))
+    implementation(project(Libraries.CHARACTERS_LIB))
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)
@@ -51,6 +56,8 @@ dependencies {
     implementation(Dependencies.COMPOSE_TOOLING)
     implementation(Dependencies.LIFECYCLE_RUNTIME)
     implementation(Dependencies.ACTIVITY_COMPOSE)
+    implementation(Dependencies.COMPOSE_NAV)
+    implementation("androidx.navigation:navigation-runtime:2.3.5")
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)
