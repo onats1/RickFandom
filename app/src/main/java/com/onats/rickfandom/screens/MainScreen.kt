@@ -1,20 +1,28 @@
 package com.onats.rickfandom.screens
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.*
 import com.onats.characters.presentation.ui.screens.CharactersListScreen
 import com.onats.episodes.presentation.ui.screens.EpisodesListScreen
 import com.onats.location.presentation.ui.screens.LocationsListScreen
+import com.onats.rickfandom.R
 
-sealed class BottomNavigationScreens(val route: String){
-    object CharacterScreen: BottomNavigationScreens("Characters")
-    object EpisodesScreen: BottomNavigationScreens("Episodes")
-    object LocationsScreen: BottomNavigationScreens("Locations")
+sealed class BottomNavigationScreens(val route: String, @DrawableRes val icon: Int, @StringRes val title: Int) {
+    object CharacterScreen : BottomNavigationScreens("Characters", R.drawable.ic_baseline_person_24, R.string.characters)
+    object EpisodesScreen : BottomNavigationScreens("Episodes", R.drawable.ic_baseline_list_24, R.string.episodes)
+    object LocationsScreen : BottomNavigationScreens("Locations", R.drawable.ic_baseline_location_on_24, R.string.locations)
 }
 
 @Composable
@@ -68,8 +76,13 @@ private fun BottomNavigationView(
         val currentRoute = currentRoute(navController)
         items.forEach { screen ->
             BottomNavigationItem(
-                icon = { Icons.Default.Call },
-                label = { Text("Rick") },
+                icon = {
+                    Icon(
+                        painter = painterResource(id = screen.icon),
+                        contentDescription = ""
+                    )
+                },
+                label = { Text(stringResource(id = screen.title)) },
                 selected = currentRoute == screen.route,
                 onClick = {
                     // This if check gives us a "singleTop" behavior where we do not create a
