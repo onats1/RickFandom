@@ -2,27 +2,34 @@ package com.onats.rickfandom.screens
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Call
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.*
-import com.onats.characters.presentation.ui.screens.CharactersListScreen
+import com.onats.characters.framework.presentation.ui.screens.CharactersListScreen
 import com.onats.episodes.presentation.ui.screens.EpisodesListScreen
 import com.onats.location.presentation.ui.screens.LocationsListScreen
 import com.onats.rickfandom.R
 
-sealed class BottomNavigationScreens(val route: String, @DrawableRes val icon: Int, @StringRes val title: Int) {
-    object CharacterScreen : BottomNavigationScreens("Characters", R.drawable.ic_baseline_person_24, R.string.characters)
-    object EpisodesScreen : BottomNavigationScreens("Episodes", R.drawable.ic_baseline_list_24, R.string.episodes)
-    object LocationsScreen : BottomNavigationScreens("Locations", R.drawable.ic_baseline_location_on_24, R.string.locations)
+sealed class BottomNavigationScreens(
+    val route: String,
+    @DrawableRes val icon: Int,
+    @StringRes val title: Int
+) {
+    object CharacterScreen :
+        BottomNavigationScreens("Characters", R.drawable.ic_baseline_person_24, R.string.characters)
+
+    object EpisodesScreen :
+        BottomNavigationScreens("Episodes", R.drawable.ic_baseline_list_24, R.string.episodes)
+
+    object LocationsScreen : BottomNavigationScreens(
+        "Locations",
+        R.drawable.ic_baseline_location_on_24,
+        R.string.locations
+    )
 }
 
 @Composable
