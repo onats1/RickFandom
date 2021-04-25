@@ -1,6 +1,10 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     androidApplication
     kotlinAndroid
+    kotlinKapt
+    kotlinParcelize
 }
 
 android {
@@ -57,7 +61,11 @@ dependencies {
     implementation(Dependencies.LIFECYCLE_RUNTIME)
     implementation(Dependencies.ACTIVITY_COMPOSE)
     implementation(Dependencies.COMPOSE_NAV)
-    implementation("androidx.navigation:navigation-runtime:2.3.5")
+    kapt(Dependencies.DAGGER_COMPILER)
+    kapt(Dependencies.DAGGER_HILT_COMPILER)
+    implementation(Dependencies.DAGGER)
+    implementation(Dependencies.DAGGER_HILT)
+    implementation(Dependencies.NAVIGATION_RUNTIME)
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)

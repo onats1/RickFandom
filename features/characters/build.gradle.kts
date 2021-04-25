@@ -1,6 +1,9 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     androidLibrary
     kotlinAndroid
+    kotlinKapt
 }
 
 android {
@@ -37,6 +40,11 @@ dependencies {
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)
+    kapt(Dependencies.DAGGER_COMPILER)
+    kapt(Dependencies.DAGGER_HILT_COMPILER)
+    implementation(Dependencies.DAGGER)
+    implementation(Dependencies.DAGGER_HILT)
+
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)

@@ -42,6 +42,16 @@ object Dependencies {
     //Coroutines
     const val KOTLIN_COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES_VERSION}"
     const val COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES_VERSION}"
+
+    //Dagger
+    const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:${Versions.DAGGER}"
+    const val DAGGER = "com.google.dagger:dagger:${Versions.DAGGER}"
+    const val DAGGER_HILT = "com.google.dagger:hilt-android:${Versions.DAGGER_HILT_VERSION}"
+    const val DAGGER_HILT_COMPILER = "com.google.dagger:hilt-compiler:${Versions.DAGGER_HILT_VERSION}"
+
+    const val NAVIGATION_RUNTIME = "androidx.navigation:navigation-runtime:${Versions.NAVIGATION_RUNTIME}"
+
+
 }
 
 object TestDependencies {
@@ -54,6 +64,7 @@ object TestDependencies {
 object Plugins {
     const val ANDROID_GRADLE_PLUGIN = "com.android.tools.build:gradle:${Versions.ANDROID_GRADLE_VERSION}"
     const val KOTLIN_GRADLE_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN_GRADLE_VERSION}"
+    const val DAGGER_HILT_PLUGIN = "com.google.dagger:hilt-android-gradle-plugin:${Versions.DAGGER_HILT_VERSION}"
 }
 
 object Versions {
@@ -75,4 +86,7 @@ object Versions {
     const val MOSHI_VERSION = "1.11.0"
     const val MOSHI_CONVERTER_VERSION = "2.9.0"
     const val COROUTINES_VERSION = "1.4.0"
+    const val DAGGER = "2.30.1"
+    const val DAGGER_HILT_VERSION = "2.33-beta"
+    const val NAVIGATION_RUNTIME = "2.3.5"
 }
