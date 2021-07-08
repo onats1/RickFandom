@@ -22,6 +22,8 @@ object Dependencies {
     const val COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.COMPOSE_VERSION}"
     const val COMPOSE_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE_VERSION}"
     const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${Versions.ACTIVITY_COMPOSE_VERSION}"
+    const val COMPOSE_RUNTIME = "androidx.compose.runtime:runtime:${Versions.COMPOSE_VERSION}"
+
 
 
     //Lifecycle components
@@ -48,9 +50,9 @@ object Versions {
     const val JUNIT_VERSION = "4.13.2"
     const val ANDROIDX_JUNIT_VERSION = "1.1.2"
     const val ESPRESSO_VERSION = "3.3.0"
-    const val ANDROID_GRADLE_VERSION = "7.0.0-alpha14"
-    const val KOTLIN_GRADLE_VERSION = "1.4.32"
-    const val COMPOSE_VERSION = "1.0.0-beta05"
+    const val ANDROID_GRADLE_VERSION = "7.1.0-alpha02"
+    const val KOTLIN_GRADLE_VERSION = "1.5.10"
+    const val COMPOSE_VERSION = "1.0.0-rc01"
     const val LIFECYCLE_RUNTIME_VERSION = "2.3.1"
     const val ACTIVITY_COMPOSE_VERSION = "1.3.0-alpha07"
 }

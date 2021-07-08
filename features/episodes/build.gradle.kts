@@ -5,13 +5,13 @@ plugins {
 
 android {
 
-    compileSdkVersion(DefaultConfig.COMPILE_SDK_VERSION)
-    buildToolsVersion(Versions.BUILD_TOOLS_VERSION)
+    compileSdk = DefaultConfig.COMPILE_SDK_VERSION
+    buildToolsVersion = Versions.BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion(DefaultConfig.MIN_SDK_VERSION)
-        targetSdkVersion(DefaultConfig.TARGET_SDK_VERSION)
-        testInstrumentationRunner(DefaultConfig.TEST_INSTRUMENTATION_RUNNER)
+        minSdk = DefaultConfig.MIN_SDK_VERSION
+        targetSdk = DefaultConfig.TARGET_SDK_VERSION
+        testInstrumentationRunner = DefaultConfig.TEST_INSTRUMENTATION_RUNNER
         vectorDrawables {
             useSupportLibrary = true
         }
