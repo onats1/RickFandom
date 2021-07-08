@@ -1,5 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-import Dependencies
+//import com.android.build.gradle.BaseExtension
+
 buildscript {
     repositories {
         google()

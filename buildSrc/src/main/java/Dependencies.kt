@@ -26,6 +26,7 @@ object Dependencies {
 
 
 
+
     //Lifecycle components
     const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE_RUNTIME_VERSION}"
 }
@@ -35,11 +36,6 @@ object TestDependencies {
     const val ANDROIDX_JUNIT = "androidx.test.ext:junit:${Versions.ANDROIDX_JUNIT_VERSION}"
     const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_VERSION}"
     const val COMPOSE_UI = "androidx.compose.ui:ui-test-junit4:${Versions.COMPOSE_VERSION}"
-}
-
-object Plugins {
-    const val ANDROID_GRADLE_PLUGIN = "com.android.tools.build:gradle:${Versions.ANDROID_GRADLE_VERSION}"
-    const val KOTLIN_GRADLE_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN_GRADLE_VERSION}"
 }
 
 object Versions {
@@ -52,7 +48,7 @@ object Versions {
     const val ESPRESSO_VERSION = "3.3.0"
     const val ANDROID_GRADLE_VERSION = "7.1.0-alpha02"
     const val KOTLIN_GRADLE_VERSION = "1.5.10"
-    const val COMPOSE_VERSION = "1.0.0-rc01"
+    const val COMPOSE_VERSION = "1.0.0-beta09"
     const val LIFECYCLE_RUNTIME_VERSION = "2.3.1"
     const val ACTIVITY_COMPOSE_VERSION = "1.3.0-alpha07"
 }
