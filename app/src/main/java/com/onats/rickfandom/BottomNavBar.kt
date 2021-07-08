@@ -22,7 +22,7 @@ sealed class NavigationItem(var route: String, var icon: Int, var title: String)
     object Home : NavigationItem("home", R.drawable.home_icon, "Home")
     object Characters : NavigationItem("music", R.drawable.characters_icon, "Characters")
     object Episodes : NavigationItem("movies", R.drawable.episodes_icon, "Episodes")
-    object Location : NavigationItem("books", R.drawable.location_icon, "Location")
+    object Location : NavigationItem("books", R.drawable.location_icon, "Locations")
 }
 
 @Composable
@@ -35,7 +35,7 @@ fun BottomNavigationBar(navController: NavController) {
     )
 
     BottomNavigation(
-        backgroundColor = colorResource(id = R.color.black),
+        backgroundColor = colorResource(id = R.color.white),
         contentColor = colorResource(R.color.purple_200)
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -44,10 +44,10 @@ fun BottomNavigationBar(navController: NavController) {
             BottomNavigationItem(
                 icon = { Icon(painterResource(id = item.icon), contentDescription = item.title) },
                 label = { Text(text = item.title) },
-                selectedContentColor = colorResource(id = R.color.white),
-                unselectedContentColor = colorResource(id = R.color.white),
+                selectedContentColor = colorResource(id = R.color.morty_blue),
+                unselectedContentColor = colorResource(id = R.color.deep_gray),
                 alwaysShowLabel = true,
-                selected = false,
+                selected = currentRoute == item.route,
                 onClick = {
                     navController.navigate(item.route) {
                         navController.graph.startDestinationRoute?.let { route ->
