@@ -23,7 +23,6 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
-        useIR = true
     }
 
     compileOptions {
@@ -52,6 +51,7 @@ dependencies {
     implementation(Dependencies.COMPOSE_TOOLING)
     implementation(Dependencies.LIFECYCLE_RUNTIME)
     implementation(Dependencies.ACTIVITY_COMPOSE)
+    implementation(Dependencies.COMPOSE_RUNTIME)
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)
