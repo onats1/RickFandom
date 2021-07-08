@@ -17,6 +17,15 @@ android {
         }
     }
 
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.COMPOSE_VERSION
+        kotlinCompilerVersion = Versions.KOTLIN_GRADLE_VERSION
+    }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -24,9 +33,12 @@ android {
 
 dependencies {
 
+    composeDependencies()
+
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)
+
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)
