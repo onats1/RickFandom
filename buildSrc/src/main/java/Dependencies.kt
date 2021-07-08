@@ -23,6 +23,7 @@ object Dependencies {
     const val COMPOSE_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE_VERSION}"
     const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${Versions.ACTIVITY_COMPOSE_VERSION}"
     const val COMPOSE_RUNTIME = "androidx.compose.runtime:runtime:${Versions.COMPOSE_VERSION}"
+    const val COMPOSE_NAVIGATION = "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION_VERSION}"
 
 
 
@@ -49,6 +50,7 @@ object Versions {
     const val ANDROID_GRADLE_VERSION = "7.1.0-alpha02"
     const val KOTLIN_GRADLE_VERSION = "1.5.10"
     const val COMPOSE_VERSION = "1.0.0-beta09"
+    const val COMPOSE_NAVIGATION_VERSION = "2.4.0-alpha04"
     const val LIFECYCLE_RUNTIME_VERSION = "2.3.1"
     const val ACTIVITY_COMPOSE_VERSION = "1.3.0-alpha07"
 }

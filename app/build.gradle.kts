@@ -43,15 +43,16 @@ android {
 
 dependencies {
 
+    implementation(project(FeatureModules.HOME_MODULE))
+    implementation(project(FeatureModules.CHARACTERS_MODULE))
+    implementation(project(FeatureModules.LOCATIONS_MODULE))
+    implementation(project(FeatureModules.EPISODES_MODULE))
+
+    composeDependencies()
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)
-    implementation(Dependencies.COMPOSE_UI)
-    implementation(Dependencies.COMPOSE_MATERIAL)
-    implementation(Dependencies.COMPOSE_TOOLING)
     implementation(Dependencies.LIFECYCLE_RUNTIME)
-    implementation(Dependencies.ACTIVITY_COMPOSE)
-    implementation(Dependencies.COMPOSE_RUNTIME)
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)
