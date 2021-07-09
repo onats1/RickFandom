@@ -21,3 +21,11 @@ fun DependencyHandler.composeDependencies() {
     implementation(Dependencies.COMPOSE_UI)
     implementation(Dependencies.COMPOSE_NAVIGATION)
 }
+
+fun DependencyHandler.networkDependencies() {
+    implementation(Dependencies.RETROFIT)
+    implementation(Dependencies.RETROFIT_MOSHI)
+    implementation(Dependencies.MOSHI)
+    implementation(Dependencies.MOSHI_ADAPTER)
+    kapt(Dependencies.MOSHI_CODEGEN)
+}

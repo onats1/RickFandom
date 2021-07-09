@@ -10,5 +10,8 @@ val PluginDependenciesSpec.androidLibrary: PluginDependencySpec
 val PluginDependenciesSpec.kotlinAndroid: PluginDependencySpec
     get() = id("kotlin-android")
 
+val PluginDependenciesSpec.kotlinKapt: PluginDependencySpec
+    get() = id("kotlin-kapt")
+
 
 

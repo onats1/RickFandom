@@ -21,6 +21,21 @@ android {
         }
     }
 
+    buildTypes {
+
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            )
+            buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/api\"")
+        }
+
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/api\"")
+        }
+    }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
