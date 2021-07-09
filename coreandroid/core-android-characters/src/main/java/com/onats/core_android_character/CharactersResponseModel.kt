@@ -3,7 +3,7 @@ package com.onats.core_android_character
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class CharactersResponseModel(
+data class CharactersResponse(
     val info: Info?,
     val results: List<CharacterDto>?
 )
@@ -14,14 +14,14 @@ data class CharacterDto(
     val name: String?,
     val status: String?,
     val species: String?,
-    val type: String?,
+    val type: String? = null,
     val gender: String?,
     val origin: OriginDto?,
     val location: LocationDto?,
     val image: String?,
     val episode: List<String>?,
     val url: String?,
-    val created: String
+    val created: String?
 )
 
 @JsonClass(generateAdapter = true)

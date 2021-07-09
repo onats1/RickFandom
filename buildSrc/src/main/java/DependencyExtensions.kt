@@ -29,3 +29,16 @@ fun DependencyHandler.networkDependencies() {
     implementation(Dependencies.MOSHI_ADAPTER)
     kapt(Dependencies.MOSHI_CODEGEN)
 }
+
+fun DependencyHandler.kotlinDependencies() {
+    implementation(Dependencies.KOTLIN_COROUTINES)
+    implementation(Dependencies.KOTLIN_REFLECT)
+    implementation(Dependencies.KOTLIN_STD_LIB)
+    implementation(Dependencies.KOTLIN_STD_LIB_JDK)
+    implementation(Dependencies.KTX_CORE)
+}
+
+fun DependencyHandler.daggerDependencies() {
+    implementation(Dependencies.DAGGER_HILT)
+    kapt(Dependencies.DAGGER_HILT_COMPILER)
+}
