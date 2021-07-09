@@ -3,27 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../layout/compose-model-1625756173961.xml" value="0.5311653116531165" />
         <entry key="../../../../layout/compose-model-1625764180777.xml" value="0.45" />
+        <entry key="../../../../layout/compose-model-1625765581214.xml" value="0.5894308943089431" />
         <entry key="../../../../layout/compose-model-1625765728529.xml" value="0.3170731707317073" />
-        <entry key="../../../../layout/compose-model-1625771643699.xml" value="0.6570397111913358" />
-        <entry key="../../../../layout/compose-model-1625771704715.xml" value="0.25" />
-        <entry key="../../../../layout/compose-model-1625771950156.xml" value="0.1" />
-        <entry key="../../../../layout/compose-model-1625772773972.xml" value="0.335" />
-        <entry key="../../../../layout/compose-model-1625774650368.xml" value="0.1" />
-        <entry key="../../../../layout/compose-model-1625778741504.xml" value="0.36486486486486486" />
-        <entry key="../../../../layout/compose-model-1625780154667.xml" value="0.36486486486486486" />
-        <entry key="../../../../layout/compose-model-1625780201472.xml" value="0.36486486486486486" />
-        <entry key="../../../../layout/compose-model-1625780289052.xml" value="0.36486486486486486" />
-        <entry key="../../../../layout/compose-model-1625781788797.xml" value="0.36486486486486486" />
-        <entry key="app/src/main/res/drawable/characters_icon.xml" value="0.4066666666666667" />
-        <entry key="app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.2604166666666667" />
-        <entry key="app/src/main/res/drawable/person.xml" value="0.4066666666666667" />
+        <entry key="../../../../layout/compose-model-1625766598168.xml" value="0.625" />
+        <entry key="../../../../layout/compose-model-1625785589655.xml" value="0.27280405405405406" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
