@@ -11,7 +11,6 @@ import org.junit.Rule
 import org.junit.Test
 import javax.inject.Inject
 import com.google.common.truth.Truth.assertThat
-import com.google.common.truth.Truth.assertWithMessage
 
 
 @HiltAndroidTest
@@ -31,10 +30,9 @@ class GetAllCharactersUseCaseTest {
     @Test
     fun test_GetAllCharacters_Successful_returnSuccess() = runBlocking {
         useCase().collect { result ->
-            assertThat(result is DomainResult.Success)
-            assertThat((result as DomainResult.Success).data.isNotEmpty())
+            assertThat(result).isInstanceOf(DomainResult.Success::class.java)
+            assertThat((result as DomainResult.Success).data).isNotEmpty()
             print(result.data)
-
         }
     }
 }
