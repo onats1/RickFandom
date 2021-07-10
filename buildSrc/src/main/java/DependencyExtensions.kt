@@ -27,6 +27,8 @@ fun DependencyHandler.networkDependencies() {
     implementation(Dependencies.RETROFIT_MOSHI)
     implementation(Dependencies.MOSHI)
     implementation(Dependencies.MOSHI_ADAPTER)
+    implementation(Dependencies.OKHTTP)
+    implementation(Dependencies.OKHTTP_LOGGING)
     kapt(Dependencies.MOSHI_CODEGEN)
 }
 

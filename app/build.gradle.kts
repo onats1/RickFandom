@@ -1,6 +1,8 @@
 plugins {
     androidApplication
     kotlinAndroid
+    kotlinKapt
+    daggerAndroidPlugin
 }
 
 android {
@@ -58,12 +60,14 @@ android {
 
 dependencies {
 
+    composeDependencies()
+    daggerDependencies()
+
     implementation(project(FeatureModules.HOME_MODULE))
     implementation(project(FeatureModules.CHARACTERS_MODULE))
     implementation(project(FeatureModules.LOCATIONS_MODULE))
     implementation(project(FeatureModules.EPISODES_MODULE))
 
-    composeDependencies()
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)

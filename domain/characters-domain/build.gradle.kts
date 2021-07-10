@@ -1,6 +1,7 @@
 plugins {
     androidLibrary
     kotlinAndroid
+    kotlinKapt
 }
 
 android {
@@ -17,15 +18,6 @@ android {
         }
     }
 
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.COMPOSE_VERSION
-        kotlinCompilerVersion = Versions.KOTLIN_GRADLE_VERSION
-    }
-
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -33,9 +25,11 @@ android {
 
 dependencies {
 
-    implementation(Dependencies.COMPOSE_RUNTIME)
+    kotlinDependencies()
+    daggerDependencies()
 
-    implementation("androidx.core:core-ktx:1.5.0")
+    implementation(project(CoreModules.CORE_COMMON_MODULE))
+    implementation(project(CoreModules.CORE_CHARACTERS_MODULE))
     implementation("androidx.appcompat:appcompat:1.3.0")
     implementation("com.google.android.material:material:1.3.0")
     testImplementation("junit:junit:4.+")
