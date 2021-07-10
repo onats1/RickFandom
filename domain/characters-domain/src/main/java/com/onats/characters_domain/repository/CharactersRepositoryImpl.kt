@@ -1,5 +1,6 @@
 package com.onats.characters_domain.repository
 
+import com.onats.common.ApplicationError
 import com.onats.common.DomainResult
 import com.onats.core_character.data.CharactersRemoteDataSource
 import com.onats.core_character.domain.CharactersRepository
@@ -22,6 +23,15 @@ constructor(
                         data = characters
                     )
                 )
+            }
+            result.error.let { error ->
+                if (error != ApplicationError.NoError) {
+                    emit(
+                        DomainResult.Error<List<Character>>(
+                            error = error
+                        )
+                    )
+                }
             }
         }
     }

@@ -54,6 +54,7 @@ object TestDependencies {
     const val ANDROIDX_JUNIT = "androidx.test.ext:junit:${Versions.ANDROIDX_JUNIT_VERSION}"
     const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_VERSION}"
     const val COMPOSE_UI = "androidx.compose.ui:ui-test-junit4:${Versions.COMPOSE_VERSION}"
+    const val DAGGER_HILT_ANDROID_TEST = "com.google.dagger:hilt-android-testing:${Versions.DAGGER_HILT}"
 }
 
 object Versions {

@@ -1,12 +1,15 @@
 package com.onats.characters_remote.data
 
+import com.onats.common.ApplicationError
 import com.onats.common.Result
 import com.onats.core_android_character.CharacterMapper
 import com.onats.core_android_character.data.CharactersApiService
 import com.onats.core_character.data.CharactersRemoteDataSource
 import com.onats.core_character.models.Character
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class CharactersRemoteDataSourceImpl
@@ -26,9 +29,25 @@ constructor(
                         data = characters
                     )
                 )
+            } else {
+                emit(
+                    Result.error<List<Character>>(
+                        ApplicationError.NetworkError(
+                            errorCode = networkRequest.code(),
+                            errorMessage = "Network Error occurred."
+                        )
+                    )
+                )
             }
         } catch (e: Exception) {
-
+            emit(
+                Result.error<List<Character>>(
+                    ApplicationError.NetworkError(
+                        errorMessage = "Network Error occurred.",
+                        errorException = e
+                    )
+                )
+            )
         }
-    }
+    }.flowOn(Dispatchers.IO)
 }

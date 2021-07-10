@@ -29,9 +29,9 @@ internal object CharactersModule {
 
     @Provides
     @Singleton
-    fun provideCharacterApiService(@Named("baseUrl") baseUrl: String): CharactersApiService = NetworkModule.retrofitClient(
+    fun provideCharacterApiService(): CharactersApiService = NetworkModule.retrofitClient(
         serviceClass = CharactersApiService::class.java,
-        baseUrl = baseUrl,
+        baseUrl = "https://rickandmortyapi.com/",
         converterFactory = MoshiConverterFactory.create()
     )
 
@@ -41,17 +41,17 @@ internal object CharactersModule {
         return GetAllCharactersUseCaseImpl(charactersRepository)
     }
 
+    @Provides
+    @Singleton
+    fun provideLocationMapper(): LocationMapper = LocationMapperImpl()
+
+    @Provides
+    @Singleton
+    fun provideOriginMapper(): OriginMapper = OriginMapperImpl()
+
     @Module
     @InstallIn(SingletonComponent::class)
     internal abstract class CharactersBindingModule {
-
-        @Binds
-        @Singleton
-        abstract fun bindLocationMapper(locationMapperImpl: LocationMapperImpl): LocationMapper
-
-        @Binds
-        @Singleton
-        abstract fun bindOriginMapper(originMapperImpl: OriginMapperImpl): OriginMapper
 
         @Binds
         @Singleton
