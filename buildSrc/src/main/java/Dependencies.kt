@@ -55,6 +55,8 @@ object TestDependencies {
     const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_VERSION}"
     const val COMPOSE_UI = "androidx.compose.ui:ui-test-junit4:${Versions.COMPOSE_VERSION}"
     const val DAGGER_HILT_ANDROID_TEST = "com.google.dagger:hilt-android-testing:${Versions.DAGGER_HILT}"
+    const val TRUTH = "com.google.truth:truth:${Versions.TRUTH_VERSION}"
+    const val MOCKITO = "org.mockito:mockito-core:${Versions.MOCKITO_VERSION}"
 }
 
 object Versions {
@@ -62,9 +64,9 @@ object Versions {
     const val KTX_VERSION = "1.5.0"
     const val KOTLIN = "1.5.10"
     const val APPCOMPAT_VERSION = "1.2.0"
-    const val MATERIAL_VERSION = "1.3.0"
+    const val MATERIAL_VERSION = "1.4.0"
     const val JUNIT_VERSION = "4.13.2"
-    const val ANDROIDX_JUNIT_VERSION = "1.1.2"
+    const val ANDROIDX_JUNIT_VERSION = "1.1.3"
     const val ESPRESSO_VERSION = "3.3.0"
     const val ANDROID_GRADLE_VERSION = "7.1.0-alpha02"
     const val KOTLIN_GRADLE_VERSION = "1.5.10"
@@ -72,6 +74,9 @@ object Versions {
     const val COMPOSE_NAVIGATION_VERSION = "2.4.0-alpha04"
     const val LIFECYCLE_RUNTIME_VERSION = "2.3.1"
     const val ACTIVITY_COMPOSE_VERSION = "1.3.0-alpha07"
+
+    const val TRUTH_VERSION = "1.1.3"
+    const val MOCKITO_VERSION = "3.11.2"
 
     const val DAGGER_HILT = "2.36"
 
