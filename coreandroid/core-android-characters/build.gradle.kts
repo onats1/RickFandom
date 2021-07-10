@@ -25,6 +25,8 @@ android {
 
 dependencies {
 
+    implementation(project(CoreModules.CORE_COMMON_MODULE))
+    implementation(project(CoreModules.CORE_CHARACTERS_MODULE))
     networkDependencies()
     implementation("androidx.core:core-ktx:1.5.0")
     implementation("androidx.appcompat:appcompat:1.3.0")

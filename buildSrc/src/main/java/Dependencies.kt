@@ -13,9 +13,20 @@ object DefaultConfig {
 object Dependencies {
 
 
-    const val KTX_CORE = "androidx.core:core-ktx:${Versions.KTX_VERSION}"
     const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.APPCOMPAT_VERSION}"
     const val MATERIAL_COMPONENTS = "com.google.android.material:material:${Versions.MATERIAL_VERSION}"
+
+    //Kotlin
+    const val KOTLIN_COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
+    const val KTX_CORE = "androidx.core:core-ktx:${Versions.KTX_VERSION}"
+    const val KOTLIN_STD_LIB = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.KOTLIN}"
+    const val KOTLIN_STD_LIB_JDK = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.KOTLIN}"
+    const val KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect:${Versions.KOTLIN}"
+
+    //Dagger
+    const val DAGGER_HILT_PLUGIN = "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha"
+    const val DAGGER_HILT = "com.google.dagger:hilt-android:${Versions.DAGGER_HILT}"
+    const val DAGGER_HILT_COMPILER = "com.google.dagger:hilt-compiler:${Versions.DAGGER_HILT}"
 
     //Jetpack Compose
     const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE_VERSION}"
@@ -47,7 +58,8 @@ object TestDependencies {
 
 object Versions {
     const val BUILD_TOOLS_VERSION = "30.0.3"
-    const val KTX_VERSION = "1.3.2"
+    const val KTX_VERSION = "1.5.0"
+    const val KOTLIN = "1.5.10"
     const val APPCOMPAT_VERSION = "1.2.0"
     const val MATERIAL_VERSION = "1.3.0"
     const val JUNIT_VERSION = "4.13.2"
@@ -60,9 +72,14 @@ object Versions {
     const val LIFECYCLE_RUNTIME_VERSION = "2.3.1"
     const val ACTIVITY_COMPOSE_VERSION = "1.3.0-alpha07"
 
+    const val DAGGER_HILT = "2.36"
+
     //Network
     const val RETROFIT = "2.9.0"
     const val RETROFIT_MOSHI = "2.6.0"
     const val MOSHI = "1.12.0"
     const val OKHTTP = "4.9.1"
+
+    //Coroutines
+    const val COROUTINES = "1.5.0"
 }

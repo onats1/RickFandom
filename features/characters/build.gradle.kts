@@ -1,6 +1,7 @@
 plugins {
     androidLibrary
     kotlinAndroid
+    kotlinKapt
 }
 
 android {
@@ -34,8 +35,17 @@ android {
 dependencies {
 
     composeDependencies()
+    daggerDependencies()
+    kotlinDependencies()
+    networkDependencies()
 
-    implementation(Dependencies.KTX_CORE)
+    implementation(project(CoreModules.CORE_CHARACTERS_MODULE))
+    implementation(project(CoreModules.CORE_COMMON_MODULE))
+    implementation(project(CoreAndroidModules.CORE_ANDROID_CHARACTERS_MODULE))
+    implementation(project(CoreAndroidModules.CORE_ANDROID_COMMON_MODULE))
+    implementation(project(DataModules.CHARACTERS_REMOTE_MODULE))
+    implementation(project(DomainModules.CHARACTERS_DOMAIN_MODULE))
+
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)
 
