@@ -12,6 +12,18 @@ private fun DependencyHandler.compileOnly(depName: String) {
 private fun DependencyHandler.api(depName: String) {
     add("api", depName)
 }
+private fun DependencyHandler.testImplementation(depName: String) {
+    add("testImplementation", depName)
+}
+private fun DependencyHandler.androidTestImplementation(depName: String) {
+    add("androidTestImplementation", depName)
+}
+private fun DependencyHandler.kaptTest(depName: String) {
+    add("kaptTest", depName)
+}
+private fun DependencyHandler.kaptAndroidTest(depName: String) {
+    add("kaptAndroidTest", depName)
+}
 
 fun DependencyHandler.composeDependencies() {
     implementation(Dependencies.ACTIVITY_COMPOSE)
@@ -44,3 +56,29 @@ fun DependencyHandler.daggerDependencies() {
     implementation(Dependencies.DAGGER_HILT)
     kapt(Dependencies.DAGGER_HILT_COMPILER)
 }
+
+fun DependencyHandler.daggerTestDependencies() {
+    androidTestImplementation(TestDependencies.DAGGER_HILT_ANDROID_TEST)
+    kaptAndroidTest(Dependencies.DAGGER_HILT_COMPILER)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

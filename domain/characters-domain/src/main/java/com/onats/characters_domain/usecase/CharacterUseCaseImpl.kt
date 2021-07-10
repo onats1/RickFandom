@@ -16,9 +16,9 @@ constructor(
     private val repository: CharactersRepository
 ) : GetAllCharactersUseCase {
     override suspend fun invoke(): Flow<DomainResult<List<Character>>> = flow {
-        repository.getAllCharacters().collect {
+        repository.getAllCharacters().collect { characters ->
             emit(
-                it
+                characters
             )
         }
     }

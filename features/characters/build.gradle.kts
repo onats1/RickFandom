@@ -12,7 +12,7 @@ android {
     defaultConfig {
         minSdk = DefaultConfig.MIN_SDK_VERSION
         targetSdk = DefaultConfig.TARGET_SDK_VERSION
-        testInstrumentationRunner = DefaultConfig.TEST_INSTRUMENTATION_RUNNER
+        testInstrumentationRunner = "com.onats.characters.CharacterTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -52,4 +52,6 @@ dependencies {
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)
+
+    daggerTestDependencies()
 }
