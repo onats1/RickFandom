@@ -18,6 +18,15 @@ android {
         }
     }
 
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", BASE_URL)
+        }
+        release {
+            buildConfigField("String", "BASE_URL", BASE_URL)
+        }
+    }
+
     buildFeatures {
         compose = true
     }
