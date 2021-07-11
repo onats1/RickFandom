@@ -1,5 +1,6 @@
 package com.onats.characters.di
 
+import com.onats.characters.BuildConfig
 import com.onats.characters_domain.repository.CharactersRepositoryImpl
 import com.onats.characters_domain.usecase.GetAllCharactersUseCaseImpl
 import com.onats.characters_remote.data.CharactersRemoteDataSourceImpl
@@ -20,7 +21,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.converter.moshi.MoshiConverterFactory
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -31,7 +31,7 @@ internal object CharactersModule {
     @Singleton
     fun provideCharacterApiService(): CharactersApiService = NetworkModule.retrofitClient(
         serviceClass = CharactersApiService::class.java,
-        baseUrl = "https://rickandmortyapi.com/",
+        baseUrl = BuildConfig.BASE_URL,
         converterFactory = MoshiConverterFactory.create()
     )
 

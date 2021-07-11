@@ -10,6 +10,8 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import javax.inject.Inject
+import com.google.common.truth.Truth.assertThat
+
 
 @HiltAndroidTest
 class GetAllCharactersUseCaseTest {
@@ -28,10 +30,9 @@ class GetAllCharactersUseCaseTest {
     @Test
     fun test_GetAllCharacters_Successful_returnSuccess() = runBlocking {
         useCase().collect { result ->
-            assert(result is DomainResult.Success)
-            assert((result as DomainResult.Success).data.isNotEmpty())
+            assertThat(result).isInstanceOf(DomainResult.Success::class.java)
+            assertThat((result as DomainResult.Success).data).isNotEmpty()
             print(result.data)
-
         }
     }
 }

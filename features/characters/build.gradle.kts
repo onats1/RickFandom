@@ -18,6 +18,15 @@ android {
         }
     }
 
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", BASE_URL)
+        }
+        release {
+            buildConfigField("String", "BASE_URL", BASE_URL)
+        }
+    }
+
     buildFeatures {
         compose = true
     }
@@ -49,9 +58,10 @@ dependencies {
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)
 
-    testImplementation(TestDependencies.JUNIT)
-    androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
+    junitTestDependencies()
+    daggerTestDependencies()
+    truthTestDependencies()
     androidTestImplementation(TestDependencies.ESPRESSO)
 
-    daggerTestDependencies()
+
 }

@@ -30,11 +30,11 @@ android {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
-            buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/api\"")
+            buildConfigField("String", "BASE_URL", BASE_URL)
         }
 
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/api\"")
+            buildConfigField("String", "BASE_URL", BASE_URL)
         }
     }
 
@@ -67,6 +67,7 @@ dependencies {
     implementation(project(FeatureModules.CHARACTERS_MODULE))
     implementation(project(FeatureModules.LOCATIONS_MODULE))
     implementation(project(FeatureModules.EPISODES_MODULE))
+    implementation(project(CoreModules.CORE_COMMON_MODULE))
 
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.APPCOMPAT)

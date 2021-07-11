@@ -62,8 +62,15 @@ fun DependencyHandler.daggerTestDependencies() {
     kaptAndroidTest(Dependencies.DAGGER_HILT_COMPILER)
 }
 
+fun DependencyHandler.junitTestDependencies() {
+    testImplementation(TestDependencies.JUNIT)
+    androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
+}
 
-
+fun DependencyHandler.truthTestDependencies() {
+    testImplementation(TestDependencies.TRUTH)
+    androidTestImplementation(TestDependencies.TRUTH)
+}
 
 
 
