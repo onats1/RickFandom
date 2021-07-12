@@ -35,6 +35,7 @@ object Dependencies {
     const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${Versions.ACTIVITY_COMPOSE_VERSION}"
     const val COMPOSE_RUNTIME = "androidx.compose.runtime:runtime:${Versions.COMPOSE_VERSION}"
     const val COMPOSE_NAVIGATION = "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION_VERSION}"
+    const val ACCOMPANIST_SYSTEM_CONTROLLER = "com.google.accompanist:accompanist-systemuicontroller:${Versions.ACCOMPANIST_COMPOSE_UI_CONTROLLER}"
 
     //Lifecycle components
     const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE_RUNTIME_VERSION}"
@@ -74,6 +75,8 @@ object Versions {
     const val COMPOSE_NAVIGATION_VERSION = "2.4.0-alpha04"
     const val LIFECYCLE_RUNTIME_VERSION = "2.3.1"
     const val ACTIVITY_COMPOSE_VERSION = "1.3.0-alpha07"
+
+    const val ACCOMPANIST_COMPOSE_UI_CONTROLLER = "0.13.0"
 
     const val TRUTH_VERSION = "1.1.3"
     const val MOCKITO_VERSION = "3.11.2"

@@ -22,3 +22,8 @@ object DataModules {
 object DomainModules {
     const val CHARACTERS_DOMAIN_MODULE = ":domain:characters-domain"
 }
+
+object UIModules {
+    const val CORE_UI_COMPONENTS = ":ui-components:core-ui"
+    const val CHARACTERS_UI_COMPONENTS = ":ui-components:characters-ui-components"
+}

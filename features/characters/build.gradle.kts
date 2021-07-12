@@ -54,6 +54,7 @@ dependencies {
     implementation(project(CoreAndroidModules.CORE_ANDROID_COMMON_MODULE))
     implementation(project(DataModules.CHARACTERS_REMOTE_MODULE))
     implementation(project(DomainModules.CHARACTERS_DOMAIN_MODULE))
+    implementation(project(UIModules.CORE_UI_COMPONENTS))
 
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)

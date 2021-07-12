@@ -13,7 +13,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import co.onats.home.ui.HomeScreen
+import com.onats.home.ui.HomeScreen
 import com.onats.characters.ui.CharactersScreen
 import com.onats.episodes.ui.EpisodesScreen
 import com.onats.location.ui.LocationScreen
