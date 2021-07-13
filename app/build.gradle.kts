@@ -68,6 +68,7 @@ dependencies {
     implementation(project(FeatureModules.LOCATIONS_MODULE))
     implementation(project(FeatureModules.EPISODES_MODULE))
     implementation(project(CoreModules.CORE_COMMON_MODULE))
+    implementation(project(UIModules.CORE_UI_COMPONENTS))
 
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.APPCOMPAT)

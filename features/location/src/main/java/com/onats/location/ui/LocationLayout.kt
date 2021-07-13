@@ -13,12 +13,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.onats.common_ui.components.AppBarInfo
+import com.onats.common_ui.theme.RickFandomTheme
 import com.onats.location.R
 
 @Composable
 fun LocationScreen() {
     Scaffold(
         backgroundColor = Color.White,
+        topBar = { AppBarInfo(title = stringResource(id = R.string.location))}
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -38,5 +41,7 @@ fun LocationScreen() {
 @Preview
 @Composable
 fun LocationScreenPreview() {
-    LocationScreen()
+    RickFandomTheme {
+        LocationScreen()
+    }
 }

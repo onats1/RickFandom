@@ -34,6 +34,7 @@ android {
 dependencies {
 
     composeDependencies()
+    implementation(project(UIModules.CORE_UI_COMPONENTS))
 
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.APPCOMPAT)

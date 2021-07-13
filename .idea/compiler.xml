@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.8">
       <module name="RickFandom.characters-domain" target="11" />
       <module name="RickFandom.characters-remote" target="11" />
+      <module name="RickFandom.characters-ui-components" target="11" />
       <module name="RickFandom.common" target="11" />
       <module name="RickFandom.core-android" target="11" />
     </bytecodeTargetLevel>

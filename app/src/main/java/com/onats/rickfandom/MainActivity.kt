@@ -4,12 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.Navigation
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.onats.rickfandom.ui.theme.RickFandomTheme
+import com.onats.common_ui.theme.RickFandomTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,25 +16,23 @@ class MainActivity : ComponentActivity() {
         setContent {
             RickFandomTheme {
                 val navController = rememberNavController()
-                Scaffold(
-                    bottomBar = { BottomNavigationBar(navController) }
-                ) {
-                    Screens(navController = navController)
-                }
+                HomeScreen(navController = navController)
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun HomeScreen(navController: NavHostController = rememberNavController()) {
+    Scaffold(
+        bottomBar = { BottomNavigationBar(navController) }
+    ) {
+        Screens(navController = navController)
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    RickFandomTheme {
-
-    }
+    HomeScreen()
 }
