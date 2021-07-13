@@ -12,10 +12,24 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/common" />
+            <option value="$PROJECT_DIR$/core/core-character" />
+            <option value="$PROJECT_DIR$/coreandroid" />
+            <option value="$PROJECT_DIR$/coreandroid/common" />
+            <option value="$PROJECT_DIR$/coreandroid/core-android-characters" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/data/characters-remote" />
+            <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/domain/characters-domain" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/characters" />
             <option value="$PROJECT_DIR$/features/episodes" />
+            <option value="$PROJECT_DIR$/features/home" />
             <option value="$PROJECT_DIR$/features/location" />
+            <option value="$PROJECT_DIR$/ui-components" />
+            <option value="$PROJECT_DIR$/ui-components/characters-ui-components" />
+            <option value="$PROJECT_DIR$/ui-components/core-ui" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

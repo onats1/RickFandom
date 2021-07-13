@@ -2,6 +2,7 @@ package com.onats.characters
 
 import org.junit.Test
 
+
 import org.junit.Assert.*
 
 /**
