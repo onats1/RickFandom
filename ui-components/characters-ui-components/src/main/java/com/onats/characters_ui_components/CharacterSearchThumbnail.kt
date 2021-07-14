@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -36,7 +37,9 @@ fun CharacterSummaryCard(
             Image(
                 painter = rememberCoilPainter(request = character.image, fadeIn = true),
                 contentDescription = "Character Image",
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
+                    .fillMaxHeight(0.5f),
+                contentScale = ContentScale.FillBounds
             )
             Column(
                 horizontalAlignment = Alignment.Start,
