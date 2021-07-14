@@ -55,6 +55,7 @@ dependencies {
     implementation(project(DataModules.CHARACTERS_REMOTE_MODULE))
     implementation(project(DomainModules.CHARACTERS_DOMAIN_MODULE))
     implementation(project(UIModules.CORE_UI_COMPONENTS))
+    implementation(project(UIModules.CHARACTERS_UI_COMPONENTS))
     implementation(Dependencies.TIMBER)
 
     implementation(Dependencies.APPCOMPAT)

@@ -36,6 +36,8 @@ dependencies {
     kotlinDependencies()
     composeDependencies()
     implementation(project(UIModules.CORE_UI_COMPONENTS))
+    implementation(project(CoreModules.CORE_CHARACTERS_MODULE))
+    implementation (Dependencies.ACCOMPANIST_COIL)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)
 

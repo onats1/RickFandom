@@ -21,15 +21,14 @@ fun AppBarInfo(
     Surface(
         color = MaterialTheme.colors.primary,
         modifier = Modifier
-            .height(110.dp)
             .fillMaxWidth()
+            .wrapContentHeight()
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(text = title, style = MaterialTheme.typography.h5)
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(12.dp))
             OutlinedTextField(
                 value = searchValue,
                 onValueChange = onSearchValueChange,
