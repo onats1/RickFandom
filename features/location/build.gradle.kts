@@ -36,6 +36,7 @@ dependencies {
     composeDependencies()
     implementation(project(UIModules.CORE_UI_COMPONENTS))
 
+    implementation(Dependencies.TIMBER)
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)

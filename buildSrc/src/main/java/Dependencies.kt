@@ -48,6 +48,9 @@ object Dependencies {
     const val MOSHI_ADAPTER = "com.squareup.moshi:moshi-adapters:${Versions.MOSHI}"
     const val OKHTTP = "com.squareup.okhttp3:okhttp:${Versions.OKHTTP}"
     const val OKHTTP_LOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP}"
+
+    //Loggin
+    const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
 }
 
 object TestDependencies {
@@ -91,4 +94,7 @@ object Versions {
 
     //Coroutines
     const val COROUTINES = "1.5.0"
+
+    //Timber
+    const val TIMBER = "4.7.1"
 }
