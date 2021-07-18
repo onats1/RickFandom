@@ -18,11 +18,11 @@ class CharactersRepositoryTest {
 
     @Test
     fun `test repository success state returns Domain success with list`() = runBlocking {
-        `when`(mockCharacterDataSource.getAllCharacters()).thenAnswer {
+        /*`when`(mockCharacterDataSource.getAllCharacters()).thenAnswer {
             return@thenAnswer Result.data(
                 data = fakeCharacterList
             )
-        }
+        }*/
     }
 }
 

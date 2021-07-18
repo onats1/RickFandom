@@ -32,6 +32,7 @@ fun DependencyHandler.composeDependencies() {
     implementation(Dependencies.COMPOSE_TOOLING)
     implementation(Dependencies.COMPOSE_UI)
     implementation(Dependencies.COMPOSE_NAVIGATION)
+    implementation(Dependencies.COMPOSE_HILT)
     implementation(Dependencies.ACCOMPANIST_SYSTEM_CONTROLLER)
 }
 

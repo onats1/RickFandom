@@ -53,6 +53,7 @@ object Dependencies {
 
     //Logging
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
+    const val COMPOSE_HILT = "androidx.hilt:hilt-navigation-compose:${Versions.COMPOSE_HILT_VERSION}"
 
 
 }
@@ -68,6 +69,7 @@ object TestDependencies {
 }
 
 object Versions {
+    const val COMPOSE_HILT_VERSION = "1.0.0-alpha02"
     const val BUILD_TOOLS_VERSION = "30.0.3"
     const val KTX_VERSION = "1.5.0"
     const val KOTLIN = "1.5.10"

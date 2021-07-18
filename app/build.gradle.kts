@@ -62,6 +62,7 @@ dependencies {
 
     composeDependencies()
     daggerDependencies()
+    kotlinDependencies()
 
     implementation(project(FeatureModules.HOME_MODULE))
     implementation(project(FeatureModules.CHARACTERS_MODULE))

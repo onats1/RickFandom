@@ -1,5 +1,6 @@
 package com.onats.rickfandom
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -61,6 +62,7 @@ fun BottomNavigationBar(navController: NavController) {
     }
 }
 
+@ExperimentalFoundationApi
 @ExperimentalMaterialApi
 @Composable
 fun Screens(navController: NavHostController) {

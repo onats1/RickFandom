@@ -29,7 +29,8 @@ fun CharacterSummaryCard(
         onClick = { onCharacterClick(character) },
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp),
+            .padding(end = 8.dp, bottom = 8.dp)
+            .wrapContentHeight(),
         shape = MaterialTheme.shapes.medium,
         backgroundColor = Color.Gray
     ) {
@@ -37,22 +38,26 @@ fun CharacterSummaryCard(
             Image(
                 painter = rememberCoilPainter(request = character.image, fadeIn = true),
                 contentDescription = "Character Image",
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .fillMaxHeight(0.5f),
-                contentScale = ContentScale.FillBounds
+                contentScale = ContentScale.Fit
             )
             Column(
                 horizontalAlignment = Alignment.Start,
                 verticalArrangement = Arrangement.Top,
-                modifier = Modifier.background(
-                    color = Color.White
-                ).padding(start = 12.dp)
+                modifier = Modifier
+                    .background(
+                        color = Color.White
+                    )
+                    .padding(start = 12.dp)
                     .fillMaxWidth()
                     .fillMaxHeight()
             ) {
-                Text(text = character.name, style = MaterialTheme.typography.h5.copy(fontWeight = FontWeight.W800, color = Color.Black))
-                Text(text = character.gender, style = MaterialTheme.typography.body1.copy(color = Color.Black))
+                Text(text = character.name, style = MaterialTheme.typography.body1.copy(fontWeight = FontWeight.W800, color = Color.Black), maxLines = 1)
+                Text(text = character.species, style = MaterialTheme.typography.body2.copy(color = Color.Black))
                 Text(text = "${character.episodes} episodes", style = MaterialTheme.typography.body2.copy(color = Color.Black))
+                Spacer(modifier = Modifier.height(8.dp))
             }
         }
     }
