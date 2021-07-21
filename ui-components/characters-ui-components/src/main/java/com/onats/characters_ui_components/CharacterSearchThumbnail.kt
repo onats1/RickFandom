@@ -1,5 +1,6 @@
 package com.onats.characters_ui_components
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -15,7 +16,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberImagePainter
 import com.google.accompanist.coil.rememberCoilPainter
+import com.onats.common_ui.components.Center
 import com.onats.common_ui.theme.RickFandomTheme
 import com.onats.core_character.models.CharacterSummary
 
@@ -36,11 +39,10 @@ fun CharacterSummaryCard(
     ) {
         Column {
             Image(
-                painter = rememberCoilPainter(request = character.image, fadeIn = true),
+                painter = rememberImagePainter(character.image),
                 contentDescription = "Character Image",
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight(0.5f),
+                    .size(128.dp),
                 contentScale = ContentScale.Fit
             )
             Column(
@@ -54,9 +56,22 @@ fun CharacterSummaryCard(
                     .fillMaxWidth()
                     .fillMaxHeight()
             ) {
-                Text(text = character.name, style = MaterialTheme.typography.body1.copy(fontWeight = FontWeight.W800, color = Color.Black), maxLines = 1)
-                Text(text = character.species, style = MaterialTheme.typography.body2.copy(color = Color.Black))
-                Text(text = "${character.episodes} episodes", style = MaterialTheme.typography.body2.copy(color = Color.Black))
+                Text(
+                    text = character.name,
+                    style = MaterialTheme.typography.body1.copy(
+                        fontWeight = FontWeight.W800,
+                        color = Color.Black
+                    ),
+                    maxLines = 1
+                )
+                Text(
+                    text = character.species,
+                    style = MaterialTheme.typography.body2.copy(color = Color.Black)
+                )
+                Text(
+                    text = "${character.episodes} episodes",
+                    style = MaterialTheme.typography.body2.copy(color = Color.Black)
+                )
                 Spacer(modifier = Modifier.height(8.dp))
             }
         }

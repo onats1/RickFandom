@@ -38,6 +38,7 @@ object Dependencies {
     const val ACCOMPANIST_SYSTEM_CONTROLLER = "com.google.accompanist:accompanist-systemuicontroller:${Versions.ACCOMPANIST_VERSION}"
 
     const val ACCOMPANIST_COIL = "com.google.accompanist:accompanist-coil:${Versions.ACCOMPANIST_VERSION}"
+    const val COIL = "io.coil-kt:coil-compose:${Versions.COIL_VERSION}"
 
     //Lifecycle components
     const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE_RUNTIME_VERSION}"
@@ -86,6 +87,7 @@ object Versions {
     const val ACTIVITY_COMPOSE_VERSION = "1.3.0-alpha07"
 
     const val ACCOMPANIST_VERSION = "0.13.0"
+    const val COIL_VERSION = "1.3.0"
 
     const val TRUTH_VERSION = "1.1.3"
     const val MOCKITO_VERSION = "3.11.2"
