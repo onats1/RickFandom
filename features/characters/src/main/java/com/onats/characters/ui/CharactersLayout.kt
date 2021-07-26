@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.onats.characters.R
+import com.onats.characters.presentation.CharacterScreenStates
 import com.onats.characters.ui.characterstates.CharacterDisplayStates
 import com.onats.characters_ui_components.CharacterSummaryCard
 import com.onats.common_ui.components.AppBarInfo
@@ -47,13 +48,12 @@ fun CharactersScreen() {
             }
         }
     ) {
-        if (charactersState.value is CharacterDisplayStates.LoadingState) {
+        if (charactersState.value.charactersDisplayScreen.showProgress) {
             Center {
                 CircularProgressIndicator()
             }
-        } else if (charactersState.value is CharacterDisplayStates.CharactersLoaded) {
-            val characters =
-                (charactersState.value as CharacterDisplayStates.CharactersLoaded).characters
+        } else {
+            val characters = charactersState.value.charactersDisplayScreen.allCharacters
             LazyVerticalGrid(
                 cells = GridCells.Fixed(2),
                 contentPadding = PaddingValues(

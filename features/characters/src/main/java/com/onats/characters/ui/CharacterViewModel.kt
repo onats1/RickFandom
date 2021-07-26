@@ -2,11 +2,12 @@ package com.onats.characters.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.onats.characters.ui.characterstates.CharacterDisplayStates
-import com.onats.common.DomainResult
-import com.onats.core_character.models.Character
-import com.onats.core_character.models.CharacterSummary
-import com.onats.core_character.usecases.GetAllCharactersUseCase
+import com.onats.characters.presentation.CharacterResult
+import com.onats.characters.presentation.CharacterScreenStateMachine
+import com.onats.characters.presentation.CharacterScreenStates
+import com.onats.characters.presentation.intentprocessors.CharacterIntentProcessor
+import com.onats.characters.presentation.intentprocessors.CharactersIntent
+import com.onats.characters.presentation.intentprocessors.ViewIntents
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,26 +19,27 @@ import javax.inject.Inject
 class CharacterViewModel
 @Inject
 constructor(
-    private val getAllCharactersUseCase: GetAllCharactersUseCase
+    private val intentProcessor: CharacterIntentProcessor,
+    private val stateMachine: CharacterScreenStateMachine
 ) : ViewModel() {
 
-    private val _charactersState = MutableStateFlow<CharacterDisplayStates>(CharacterDisplayStates.InitialState)
-    val characterState: StateFlow<CharacterDisplayStates> = _charactersState
+    private val _charactersState = MutableStateFlow<CharacterScreenStates>(CharacterScreenStates())
+    val characterState: StateFlow<CharacterScreenStates> = _charactersState
 
     init {
+        dispatchIntent(
+            CharactersIntent.GetAllCharactersIntent
+        )
+    }
+
+    fun dispatchIntent(intent: ViewIntents) {
         viewModelScope.launch {
-            if (_charactersState.value !is CharacterDisplayStates.CharactersLoaded) {
-                _charactersState.value = CharacterDisplayStates.LoadingState
-                getAllCharactersUseCase().collect { domainResult ->
-                    if (domainResult is DomainResult.Success) {
-                        val characterSummaryList = domainResult.data.map { it.summary }
-                        _charactersState.value = CharacterDisplayStates.CharactersLoaded(
-                            characters = characterSummaryList
-                        )
-                    }
+            intentProcessor.executeIntent(intent).collect { result ->
+                result as CharacterResult
+                with(stateMachine) {
+                    _charactersState.value = _charactersState.value reduceTo result
                 }
             }
-
         }
     }
 

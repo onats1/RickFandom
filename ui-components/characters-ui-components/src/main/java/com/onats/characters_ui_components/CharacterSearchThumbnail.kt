@@ -1,6 +1,5 @@
 package com.onats.characters_ui_components
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -17,8 +16,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
-import com.google.accompanist.coil.rememberCoilPainter
-import com.onats.common_ui.components.Center
 import com.onats.common_ui.theme.RickFandomTheme
 import com.onats.core_character.models.CharacterSummary
 
