@@ -22,7 +22,6 @@ constructor(
         }
     }
 
-
     private fun getAllCharacters(): Flow<CharacterResult.CharacterDisplayResult> = flow {
         getAllCharactersUseCase().collect { domainResult ->
             if (domainResult is DomainResult.Success) {
