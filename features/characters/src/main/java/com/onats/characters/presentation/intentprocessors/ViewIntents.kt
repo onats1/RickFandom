@@ -1,3 +1,0 @@
-package com.onats.characters.presentation.intentprocessors
-
-interface ViewIntents

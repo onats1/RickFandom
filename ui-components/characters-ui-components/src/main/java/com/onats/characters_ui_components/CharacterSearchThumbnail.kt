@@ -19,8 +19,7 @@ import coil.compose.rememberImagePainter
 import com.onats.common_ui.theme.RickFandomTheme
 import com.onats.core_character.models.CharacterSummary
 
-@ExperimentalMaterialApi
-@Composable
+@[Composable ExperimentalMaterialApi]
 fun CharacterSummaryCard(
     character: CharacterSummary,
     onCharacterClick: (CharacterSummary) -> Unit

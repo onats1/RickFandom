@@ -1,7 +1,6 @@
-package com.onats.characters.ui
+package com.onats.characters.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
@@ -16,18 +15,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.onats.characters.R
-import com.onats.characters.presentation.CharacterScreenStates
-import com.onats.characters.ui.characterstates.CharacterDisplayStates
+import com.onats.characters.ui.CharacterViewModel
 import com.onats.characters_ui_components.CharacterSummaryCard
 import com.onats.common_ui.components.AppBarInfo
 import com.onats.common_ui.components.Center
 import com.onats.common_ui.theme.RickFandomTheme
-import com.onats.core_character.models.CharacterSummary
 import timber.log.Timber
 
-@ExperimentalFoundationApi
-@ExperimentalMaterialApi
-@Composable
+@[Composable ExperimentalMaterialApi ExperimentalFoundationApi]
 fun CharactersScreen() {
 
     var text by rememberSaveable { mutableStateOf("") } // Will be updated accordingly
