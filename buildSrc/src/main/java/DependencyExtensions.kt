@@ -66,6 +66,8 @@ fun DependencyHandler.daggerTestDependencies() {
 
 fun DependencyHandler.junitTestDependencies() {
     testImplementation(TestDependencies.JUNIT)
+    testImplementation(TestDependencies.TRUTH)
+    testImplementation(TestDependencies.MOCKITO)
     androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
 }
 
