@@ -13,8 +13,7 @@ import org.mockito.Mock
 
 class CharacterIntentProcessorTest {
 
-    @Mock
-    val mockCharacterUseCase: GetAllCharactersUseCase = GetAllCharactersUseCaseMock()
+    private val mockCharacterUseCase: GetAllCharactersUseCase = GetAllCharactersUseCaseMock()
 
     private val characterIntentProcessor = CharacterIntentProcessor(mockCharacterUseCase)
 
