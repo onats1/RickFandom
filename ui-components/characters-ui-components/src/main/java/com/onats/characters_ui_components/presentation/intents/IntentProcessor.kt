@@ -18,15 +18,17 @@ constructor(
         currentScreenState: CharacterDisplayScreenStates,
         updateScreenState: (CharacterDisplayScreenStates) -> Unit
     ) {
+        val characterDisplayComponent = currentScreenState.characterScreenData.characterData
+        val characterSearchResultsComponent = currentScreenState.characterScreenData.characterData
+
         when (intent) {
             LoadCharacters -> {
-                val characterDisplayComponent = currentScreenState.characterScreenData.characterData
-                val characterDisplayComponentState =
+                val characterLoadingState =
                     CharacterDisplayComponentStates.LoadingState(
                         characterDisplayComponent.reduceToLoadingState()
                     )
                 val loadingScreenState = currentScreenState.reduceToCharacterDisplayState(
-                    characterDisplayComponentState
+                    characterLoadingState
                 )
                 updateScreenState(
                     CharacterDisplayScreenStates.CharacterDisplayComponentState(
