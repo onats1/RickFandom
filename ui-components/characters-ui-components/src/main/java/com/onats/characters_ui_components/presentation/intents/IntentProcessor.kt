@@ -1,6 +1,8 @@
 package com.onats.characters_ui_components.presentation.intents
 
 import com.onats.characters_ui_components.presentation.characterstates.*
+import com.onats.characters_ui_components.presentation.componentstatemachines.CharacterComponentResults
+import com.onats.characters_ui_components.presentation.componentstatemachines.CharacterComponentStateMachine
 import com.onats.common.DomainResult
 import com.onats.common_ui.presentation.MVIIntent
 import com.onats.core_character.usecases.GetAllCharactersUseCase
@@ -18,39 +20,17 @@ constructor(
         currentScreenState: CharacterDisplayScreenStates,
         updateScreenState: (CharacterDisplayScreenStates) -> Unit
     ) {
-        val characterDisplayComponent = currentScreenState.characterScreenData.characterData
-        val characterSearchResultsComponent = currentScreenState.characterScreenData.characterData
-
         when (intent) {
             LoadCharacters -> {
-                val characterLoadingState =
-                    CharacterDisplayComponentStates.LoadingState(
-                        characterDisplayComponent.reduceToLoadingState()
-                    )
-                val loadingScreenState = currentScreenState.reduceToCharacterDisplayState(
-                    characterLoadingState
+                val charactersLoadingState = CharacterComponentStateMachine.transform(
+                    CharacterComponentResults.Loading,
+                    currentScreenState
                 )
-                updateScreenState(
-                    CharacterDisplayScreenStates.CharacterDisplayComponentState(
-                        loadingScreenState
-                    )
-                )
+                updateScreenState(charactersLoadingState)
                 getAllCharactersUseCase().collect { domainResult ->
                     if (domainResult is DomainResult.Success) {
-                        val updatedCharacterDisplayData =
-                            characterDisplayComponent.reduceToCharactersLoadedState(domainResult.data.map { it.summary })
-                        val updatedCharacterDisplayComponent =
-                            CharacterDisplayComponentStates.CharactersLoaded(
-                                updatedCharacterDisplayData
-                            )
-                        val updatedScreenState = currentScreenState.reduceToCharacterDisplayState(
-                            updatedCharacterDisplayComponent
-                        )
-                        updateScreenState(
-                            CharacterDisplayScreenStates.CharacterDisplayComponentState(
-                                updatedScreenState
-                            )
-                        )
+                        val charactersLoadedState = CharacterComponentStateMachine.transform(CharacterComponentResults.CharactersLoaded(domainResult.data), currentScreenState)
+                        updateScreenState(charactersLoadedState)
                     }
                 }
             }

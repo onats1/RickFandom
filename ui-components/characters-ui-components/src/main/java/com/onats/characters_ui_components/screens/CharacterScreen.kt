@@ -35,7 +35,7 @@ fun CharactersScreen(
     ) {
         when (val screenStateValue = charactersState.value) {
             is CharacterDisplayScreenStates.CharacterDisplayComponentState -> {
-                CharactersDisplayComponent(state = screenStateValue.characterScreenData.characterData)
+                CharactersDisplayComponent(state = screenStateValue.characterScreenComponents.characterData)
             }
         }
     }
