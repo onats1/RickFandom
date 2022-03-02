@@ -1,4 +1,4 @@
-package com.onats.characters_ui_components.presentation.component
+package com.onats.characters_ui_components.presentation.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.PaddingValues
