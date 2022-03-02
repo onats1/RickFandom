@@ -1,6 +1,7 @@
 package com.onats.characters.ui
 
 import androidx.lifecycle.viewModelScope
+import com.onats.characters_ui_components.presentation.CharacterViewModel
 import com.onats.characters_ui_components.presentation.characterstates.CharacterDisplayScreenStates
 import com.onats.characters_ui_components.presentation.intents.CharacterIntentProcessor
 import com.onats.characters_ui_components.presentation.intents.LoadCharacters
@@ -12,18 +13,18 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class CharacterViewModel
+class CharacterViewModelImpl
 @Inject
 constructor(
     private val characterIntentProcessor: CharacterIntentProcessor
-) : BaseViewModel<CharacterDisplayScreenStates>(CharacterDisplayScreenStates.InitialState) {
+) : CharacterViewModel() {
 
     init {
         processIntent(LoadCharacters)
         Timber.e("intent called")
     }
 
-    fun processIntent(intent: MVIIntent) {
+    override fun processIntent(intent: MVIIntent) {
         viewModelScope.launch {
             characterIntentProcessor.processIntent(intent = intent, currentScreenState = currentScreenStateValue) { intentResult ->
                 Timber.e("result emitted")

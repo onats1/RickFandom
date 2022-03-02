@@ -39,6 +39,7 @@ dependencies {
     implementation(project(CoreModules.CORE_CHARACTERS_MODULE))
     implementation(project(CoreModules.CORE_COMMON_MODULE))
     implementation(Dependencies.ACCOMPANIST_COIL)
+    implementation(Dependencies.TIMBER)
     implementation(Dependencies.COIL)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)

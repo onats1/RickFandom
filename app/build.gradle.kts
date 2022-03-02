@@ -70,6 +70,7 @@ dependencies {
     implementation(project(FeatureModules.EPISODES_MODULE))
     implementation(project(CoreModules.CORE_COMMON_MODULE))
     implementation(project(UIModules.CORE_UI_COMPONENTS))
+    implementation(project(UIModules.CHARACTERS_UI_COMPONENTS))
 
     implementation(Dependencies.TIMBER)
     implementation(Dependencies.KTX_CORE)

@@ -6,13 +6,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.onats.characters.ui.CharacterViewModelImpl
+import com.onats.characters.ui.CharactersBaseDisplay
+import com.onats.characters_ui_components.presentation.CharacterViewModel
 import com.onats.home.ui.HomeScreen
-import com.onats.characters.ui.screens.CharactersScreen
+import com.onats.characters_ui_components.screens.CharactersScreen
 import com.onats.episodes.ui.EpisodesScreen
 import com.onats.location.ui.LocationScreen
 
@@ -71,7 +75,7 @@ fun Screens(navController: NavHostController) {
             HomeScreen()
         }
         composable(NavigationItem.Characters.route) {
-            CharactersScreen()
+            CharactersScreen(characterScreenViewModel = hiltViewModel<CharacterViewModelImpl>())
         }
         composable(NavigationItem.Episodes.route) {
             EpisodesScreen()
