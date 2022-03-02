@@ -62,6 +62,7 @@ dependencies {
 
     composeDependencies()
     daggerDependencies()
+    kotlinDependencies()
 
     implementation(project(FeatureModules.HOME_MODULE))
     implementation(project(FeatureModules.CHARACTERS_MODULE))
@@ -69,7 +70,9 @@ dependencies {
     implementation(project(FeatureModules.EPISODES_MODULE))
     implementation(project(CoreModules.CORE_COMMON_MODULE))
     implementation(project(UIModules.CORE_UI_COMPONENTS))
+    implementation(project(UIModules.CHARACTERS_UI_COMPONENTS))
 
+    implementation(Dependencies.TIMBER)
     implementation(Dependencies.KTX_CORE)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)

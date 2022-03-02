@@ -35,7 +35,10 @@ object Dependencies {
     const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${Versions.ACTIVITY_COMPOSE_VERSION}"
     const val COMPOSE_RUNTIME = "androidx.compose.runtime:runtime:${Versions.COMPOSE_VERSION}"
     const val COMPOSE_NAVIGATION = "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION_VERSION}"
-    const val ACCOMPANIST_SYSTEM_CONTROLLER = "com.google.accompanist:accompanist-systemuicontroller:${Versions.ACCOMPANIST_COMPOSE_UI_CONTROLLER}"
+    const val ACCOMPANIST_SYSTEM_CONTROLLER = "com.google.accompanist:accompanist-systemuicontroller:${Versions.ACCOMPANIST_VERSION}"
+
+    const val ACCOMPANIST_COIL = "com.google.accompanist:accompanist-coil:${Versions.ACCOMPANIST_VERSION}"
+    const val COIL = "io.coil-kt:coil-compose:${Versions.COIL_VERSION}"
 
     //Lifecycle components
     const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE_RUNTIME_VERSION}"
@@ -48,6 +51,12 @@ object Dependencies {
     const val MOSHI_ADAPTER = "com.squareup.moshi:moshi-adapters:${Versions.MOSHI}"
     const val OKHTTP = "com.squareup.okhttp3:okhttp:${Versions.OKHTTP}"
     const val OKHTTP_LOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP}"
+
+    //Logging
+    const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
+    const val COMPOSE_HILT = "androidx.hilt:hilt-navigation-compose:${Versions.COMPOSE_HILT_VERSION}"
+
+
 }
 
 object TestDependencies {
@@ -61,6 +70,7 @@ object TestDependencies {
 }
 
 object Versions {
+    const val COMPOSE_HILT_VERSION = "1.0.0-alpha02"
     const val BUILD_TOOLS_VERSION = "30.0.3"
     const val KTX_VERSION = "1.5.0"
     const val KOTLIN = "1.5.10"
@@ -76,7 +86,8 @@ object Versions {
     const val LIFECYCLE_RUNTIME_VERSION = "2.3.1"
     const val ACTIVITY_COMPOSE_VERSION = "1.3.0-alpha07"
 
-    const val ACCOMPANIST_COMPOSE_UI_CONTROLLER = "0.13.0"
+    const val ACCOMPANIST_VERSION = "0.13.0"
+    const val COIL_VERSION = "1.3.0"
 
     const val TRUTH_VERSION = "1.1.3"
     const val MOCKITO_VERSION = "3.11.2"
@@ -91,4 +102,7 @@ object Versions {
 
     //Coroutines
     const val COROUTINES = "1.5.0"
+
+    //Timber
+    const val TIMBER = "4.7.1"
 }

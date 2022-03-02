@@ -13,6 +13,7 @@ data class Character(
     val url: String,
     val created: String,
     val summary: CharacterSummary = CharacterSummary(
+        id = id,
         name = name,
         gender = gender,
         species = species,
@@ -41,6 +42,7 @@ data class Location(
 }
 
 data class CharacterSummary(
+    val id: Int,
     val name: String,
     val gender: String,
     val species: String,

@@ -43,27 +43,33 @@ internal object CharactersModule {
 
     @Provides
     @Singleton
+    fun provideCharacterRepository(charactersDataSource: CharactersRemoteDataSource): CharactersRepository {
+        return CharactersRepositoryImpl(charactersDataSource)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCharacterDataSource(
+        charactersApiService: CharactersApiService,
+        characterMapper: CharacterMapper
+    ): CharactersRemoteDataSource {
+        return CharactersRemoteDataSourceImpl(characterMapper, charactersApiService)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCharacterMapper(
+        originMapper: OriginMapper,
+        locationMapper: LocationMapper
+    ): CharacterMapper = CharacterMapperImpl(originMapper, locationMapper)
+
+
+    @Provides
+    @Singleton
     fun provideLocationMapper(): LocationMapper = LocationMapperImpl()
 
     @Provides
     @Singleton
     fun provideOriginMapper(): OriginMapper = OriginMapperImpl()
 
-    @Module
-    @InstallIn(SingletonComponent::class)
-    internal abstract class CharactersBindingModule {
-
-        @Binds
-        @Singleton
-        abstract fun bindCharacterMapper(characterMapperImpl: CharacterMapperImpl): CharacterMapper
-
-        @Binds
-        @Singleton
-        abstract fun bindCharacterDataSource(charactersRemoteDataSource: CharactersRemoteDataSourceImpl): CharactersRemoteDataSource
-
-        @Binds
-        @Singleton
-        abstract fun bindCharacterRepository(charactersRepositoryImpl: CharactersRepositoryImpl): CharactersRepository
-
-    }
 }

@@ -1,20 +1,22 @@
 package com.onats.rickfandom
 
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.onats.characters.ui.CharacterViewModelImpl
+import com.onats.characters.ui.CharactersBaseDisplay
+import com.onats.characters_ui_components.presentation.CharacterViewModel
 import com.onats.home.ui.HomeScreen
-import com.onats.characters.ui.CharactersScreen
+import com.onats.characters_ui_components.screens.CharactersScreen
 import com.onats.episodes.ui.EpisodesScreen
 import com.onats.location.ui.LocationScreen
 
@@ -64,6 +66,8 @@ fun BottomNavigationBar(navController: NavController) {
     }
 }
 
+@ExperimentalFoundationApi
+@ExperimentalMaterialApi
 @Composable
 fun Screens(navController: NavHostController) {
     NavHost(navController, startDestination = NavigationItem.Home.route) {
@@ -71,7 +75,7 @@ fun Screens(navController: NavHostController) {
             HomeScreen()
         }
         composable(NavigationItem.Characters.route) {
-            CharactersScreen()
+            CharactersScreen(characterScreenViewModel = hiltViewModel<CharacterViewModelImpl>())
         }
         composable(NavigationItem.Episodes.route) {
             EpisodesScreen()
