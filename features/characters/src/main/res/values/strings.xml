@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="character">Characters</string>
-    <string name="network_error_occured">Network Error Occurred. Try again</string>
-    <string name="no_error">no error</string>
+
 </resources>

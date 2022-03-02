@@ -1,4 +1,4 @@
-package com.onats.characters.ui.intents
+package com.onats.characters_ui_components.presentation.intents
 
 import com.onats.common_ui.presentation.MVIIntent
 

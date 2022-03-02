@@ -1,7 +1,7 @@
-package com.onats.characters.ui.characterstates
+package com.onats.characters_ui_components.presentation.characterstates
 
 import androidx.annotation.StringRes
-import com.onats.characters.R
+import com.onats.characters_ui_components.R
 import com.onats.common_ui.presentation.ComponentState
 import com.onats.core_character.models.CharacterSummary
 
@@ -29,6 +29,10 @@ fun CharacterDisplayComponentStates.reduceToCharactersLoadedState(characters: Li
     return data.copy(
         characters = characters
     )
+}
+
+fun CharacterDisplayComponentStates.reduceToLoadingState(): CharacterDisplayData {
+    return data
 }
 
 /**

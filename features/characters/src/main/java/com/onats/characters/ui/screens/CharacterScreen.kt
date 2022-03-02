@@ -17,6 +17,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.onats.characters.R
 import com.onats.characters.ui.CharacterViewModel
 import com.onats.characters_ui_components.CharacterSummaryCard
+import com.onats.characters_ui_components.presentation.characterstates.CharacterDisplayComponentStates
+import com.onats.characters_ui_components.presentation.characterstates.CharacterDisplayScreenStates
 import com.onats.common_ui.components.AppBarInfo
 import com.onats.common_ui.components.Center
 import com.onats.common_ui.theme.RickFandomTheme
@@ -28,7 +30,7 @@ fun CharactersScreen() {
     var text by rememberSaveable { mutableStateOf("") } // Will be updated accordingly
     val viewModel = hiltViewModel<CharacterViewModel>()
 
-    val charactersState = viewModel.characterState.collectAsState()
+    val charactersState = viewModel.screenState.collectAsState()
 
 
     Scaffold(
@@ -43,24 +45,29 @@ fun CharactersScreen() {
             }
         }
     ) {
-        if (charactersState.value.charactersDisplayScreen.showProgress) {
-            Center {
-                CircularProgressIndicator()
-            }
-        } else {
-            val characters = charactersState.value.charactersDisplayScreen.allCharacters
-            LazyVerticalGrid(
-                cells = GridCells.Fixed(2),
-                contentPadding = PaddingValues(
-                    start = 16.dp,
-                    end = 8.dp,
-                    top = 16.dp,
-                    bottom = 56.dp
-                ),
-            ) {
-                items(characters.size) {
-                    CharacterSummaryCard(character = characters[it]) {
+        when (val screenStateValue = charactersState.value) {
 
+            is CharacterDisplayScreenStates.CharacterDisplayComponentState -> {
+                if (screenStateValue.characterScreenData.characterData is CharacterDisplayComponentStates.LoadingState) {
+                    Center {
+                        CircularProgressIndicator()
+                    }
+                } else {
+                    val characters = screenStateValue.characterScreenData.characterData.data.characters
+                    LazyVerticalGrid(
+                        cells = GridCells.Fixed(2),
+                        contentPadding = PaddingValues(
+                            start = 16.dp,
+                            end = 8.dp,
+                            top = 16.dp,
+                            bottom = 56.dp
+                        ),
+                    ) {
+                        items(characters.size) {
+                            CharacterSummaryCard(character = characters[it]) {
+
+                            }
+                        }
                     }
                 }
             }

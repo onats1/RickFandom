@@ -37,6 +37,7 @@ dependencies {
     composeDependencies()
     implementation(project(UIModules.CORE_UI_COMPONENTS))
     implementation(project(CoreModules.CORE_CHARACTERS_MODULE))
+    implementation(project(CoreModules.CORE_COMMON_MODULE))
     implementation(Dependencies.ACCOMPANIST_COIL)
     implementation(Dependencies.COIL)
     implementation(Dependencies.APPCOMPAT)
