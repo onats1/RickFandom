@@ -1,6 +1,7 @@
-package com.onats.characters_ui_components.presentation.componentstatemachines
+package com.onats.characters_ui_components.presentation.charactercomponentstates.characterdisplaystates
 
-import com.onats.characters_ui_components.presentation.characterstates.*
+import com.onats.characters_ui_components.presentation.charactercomponentstates.*
+import com.onats.common_ui.presentation.MviResults
 import com.onats.core_character.models.Character
 
 object CharacterComponentStateMachine {
@@ -15,16 +16,11 @@ object CharacterComponentStateMachine {
         return when (results) {
             is CharacterComponentResults.Loading -> {
                 val characterLoadingState = CharacterDisplayComponentStates.LoadingState(characterComponentState.reduceToLoadingState())
-                val updatedState = screenStates.reduceToCharacterDisplayState(
-                    characterLoadingState
-                )
-                CharacterDisplayScreenStates.CharacterDisplayComponentState(
-                    updatedState
-                )
+                val updatedState = screenStates.reduceToCharacterDisplayState(characterLoadingState)
+                CharacterDisplayScreenStates.CharacterDisplayComponentState(updatedState)
             }
             is CharacterComponentResults.CharactersLoaded -> {
-                val updatedCharacterDisplayData =
-                    characterComponentState.reduceToCharactersLoadedState(results.characters.map { it.summary })
+                val updatedCharacterDisplayData = characterComponentState.reduceToCharactersLoadedState(results.characters.map { it.summary })
                 val updatedCharacterDisplayComponent = screenStates.reduceToCharacterDisplayState(
                     CharacterDisplayComponentStates.CharactersLoaded(updatedCharacterDisplayData)
                 )
@@ -41,5 +37,5 @@ sealed class CharacterComponentResults: MviResults {
     data class CharactersLoaded(val characters: List<Character>): CharacterComponentResults()
 }
 
-interface MviResults
+
 

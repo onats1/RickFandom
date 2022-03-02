@@ -1,8 +1,8 @@
 package com.onats.characters_ui_components.presentation.intents
 
-import com.onats.characters_ui_components.presentation.characterstates.*
-import com.onats.characters_ui_components.presentation.componentstatemachines.CharacterComponentResults
-import com.onats.characters_ui_components.presentation.componentstatemachines.CharacterComponentStateMachine
+import com.onats.characters_ui_components.presentation.charactercomponentstates.*
+import com.onats.characters_ui_components.presentation.charactercomponentstates.characterdisplaystates.CharacterComponentResults
+import com.onats.characters_ui_components.presentation.charactercomponentstates.characterdisplaystates.CharacterComponentStateMachine
 import com.onats.common.DomainResult
 import com.onats.common_ui.presentation.MVIIntent
 import com.onats.core_character.usecases.GetAllCharactersUseCase
@@ -29,7 +29,8 @@ constructor(
                 updateScreenState(charactersLoadingState)
                 getAllCharactersUseCase().collect { domainResult ->
                     if (domainResult is DomainResult.Success) {
-                        val charactersLoadedState = CharacterComponentStateMachine.transform(CharacterComponentResults.CharactersLoaded(domainResult.data), currentScreenState)
+                        val charactersLoadedState = CharacterComponentStateMachine.transform(
+                            CharacterComponentResults.CharactersLoaded(domainResult.data), currentScreenState)
                         updateScreenState(charactersLoadedState)
                     }
                 }

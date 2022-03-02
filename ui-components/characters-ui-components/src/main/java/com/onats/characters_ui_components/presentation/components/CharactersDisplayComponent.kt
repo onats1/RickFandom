@@ -9,7 +9,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.onats.characters_ui_components.CharacterSummaryCard
-import com.onats.characters_ui_components.presentation.characterstates.CharacterDisplayComponentStates
+import com.onats.characters_ui_components.presentation.charactercomponentstates.characterdisplaystates.CharacterDisplayComponentStates
 import com.onats.common_ui.components.Center
 
 @[Composable ExperimentalFoundationApi ExperimentalMaterialApi]

@@ -2,10 +2,8 @@ package com.onats.characters.ui
 
 import androidx.lifecycle.viewModelScope
 import com.onats.characters_ui_components.presentation.CharacterViewModel
-import com.onats.characters_ui_components.presentation.characterstates.CharacterDisplayScreenStates
 import com.onats.characters_ui_components.presentation.intents.CharacterIntentProcessor
 import com.onats.characters_ui_components.presentation.intents.LoadCharacters
-import com.onats.common_ui.presentation.BaseViewModel
 import com.onats.common_ui.presentation.MVIIntent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

@@ -1,6 +1,6 @@
 package com.onats.characters_ui_components.presentation
 
-import com.onats.characters_ui_components.presentation.characterstates.CharacterDisplayScreenStates
+import com.onats.characters_ui_components.presentation.charactercomponentstates.CharacterDisplayScreenStates
 import com.onats.common_ui.presentation.BaseViewModel
 import com.onats.common_ui.presentation.MVIIntent
 

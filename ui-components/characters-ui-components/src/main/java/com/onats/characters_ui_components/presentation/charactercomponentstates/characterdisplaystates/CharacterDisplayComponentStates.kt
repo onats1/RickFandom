@@ -1,4 +1,4 @@
-package com.onats.characters_ui_components.presentation.characterstates
+package com.onats.characters_ui_components.presentation.charactercomponentstates.characterdisplaystates
 
 import androidx.annotation.StringRes
 import com.onats.characters_ui_components.R
