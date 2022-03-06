@@ -11,7 +11,7 @@ android {
     defaultConfig {
         minSdk = DefaultConfig.MIN_SDK_VERSION
         targetSdk = DefaultConfig.TARGET_SDK_VERSION
-        testInstrumentationRunner = "com.onats.characters.CharacterTestRunner"
+        testInstrumentationRunner = DefaultConfig.TEST_INSTRUMENTATION_RUNNER
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -24,6 +24,12 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.COMPOSE_VERSION
         kotlinCompilerVersion = Versions.KOTLIN_GRADLE_VERSION
+    }
+
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
+        exclude("META-INF/AL2.0")
+        exclude("META-INF/LGPL2.1")
     }
 
     kotlinOptions {
@@ -43,6 +49,8 @@ dependencies {
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.COIL)
     implementation(Dependencies.MATERIAL_COMPONENTS)
+    androidTestImplementation(TestDependencies.COMPOSE_UI)
+    debugImplementation(TestDependencies.COMPOSE_UI_MANIFEST)
     junitTestDependencies()
     androidTestImplementation(TestDependencies.ESPRESSO)
 }

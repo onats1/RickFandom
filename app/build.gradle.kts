@@ -56,6 +56,12 @@ android {
         kotlinCompilerVersion = Versions.KOTLIN_GRADLE_VERSION
     }
 
+    packagingOptions {
+        exclude("META-INF/AL2.0")
+        exclude("META-INF/*.kotlin_module")
+        exclude("META-INF/LGPL2.1")
+    }
+
 }
 
 dependencies {
