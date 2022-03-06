@@ -1,4 +1,4 @@
-package com.onats.characters_ui_components
+package com.onats.characters_ui_components.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -15,7 +15,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.rememberImagePainter
+import com.google.accompanist.coil.rememberCoilPainter
 import com.onats.common_ui.theme.RickFandomTheme
 import com.onats.core_character.models.CharacterSummary
 
@@ -24,6 +24,8 @@ fun CharacterSummaryCard(
     character: CharacterSummary,
     onCharacterClick: (CharacterSummary) -> Unit
 ) {
+
+    val painter = rememberCoilPainter(character.image)
     Card(
         onClick = { onCharacterClick(character) },
         modifier = Modifier
@@ -31,11 +33,14 @@ fun CharacterSummaryCard(
             .padding(end = 8.dp, bottom = 8.dp)
             .wrapContentHeight(),
         shape = MaterialTheme.shapes.medium,
-        backgroundColor = Color.Gray
+        backgroundColor = Color.LightGray
     ) {
-        Column {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
             Image(
-                painter = rememberImagePainter(character.image),
+                painter = painter,
                 contentDescription = "Character Image",
                 modifier = Modifier
                     .size(128.dp),

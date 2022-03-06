@@ -1,4 +1,4 @@
-package com.onats.characters_ui_components.presentation.charactercomponentstates.characterdisplaystates
+package com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates
 
 import com.onats.characters_ui_components.presentation.charactercomponentstates.*
 import com.onats.common_ui.presentation.MviResults

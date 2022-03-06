@@ -1,8 +1,8 @@
 package com.onats.characters_ui_components.presentation.intents
 
 import com.onats.characters_ui_components.presentation.charactercomponentstates.*
-import com.onats.characters_ui_components.presentation.charactercomponentstates.characterdisplaystates.CharacterComponentResults
-import com.onats.characters_ui_components.presentation.charactercomponentstates.characterdisplaystates.CharacterComponentStateMachine
+import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterComponentResults
+import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterComponentStateMachine
 import com.onats.common.DomainResult
 import com.onats.common_ui.presentation.MVIIntent
 import com.onats.core_character.usecases.GetAllCharactersUseCase

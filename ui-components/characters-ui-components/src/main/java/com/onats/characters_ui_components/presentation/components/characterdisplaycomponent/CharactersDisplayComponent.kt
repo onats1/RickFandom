@@ -1,4 +1,4 @@
-package com.onats.characters_ui_components.presentation.components
+package com.onats.characters_ui_components.presentation.components.characterdisplaycomponent
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.PaddingValues
@@ -8,8 +8,8 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.onats.characters_ui_components.CharacterSummaryCard
-import com.onats.characters_ui_components.presentation.charactercomponentstates.characterdisplaystates.CharacterDisplayComponentStates
+import com.onats.characters_ui_components.presentation.components.CharacterSummaryCard
+import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterDisplayComponentStates
 import com.onats.common_ui.components.Center
 
 @[Composable ExperimentalFoundationApi ExperimentalMaterialApi]

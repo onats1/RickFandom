@@ -10,7 +10,7 @@ import androidx.compose.ui.res.stringResource
 import com.onats.characters_ui_components.R
 import com.onats.characters_ui_components.presentation.CharacterViewModel
 import com.onats.characters_ui_components.presentation.charactercomponentstates.CharacterScreenStates
-import com.onats.characters_ui_components.presentation.components.CharactersDisplayComponent
+import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.CharactersDisplayComponent
 import com.onats.common_ui.components.AppBarInfo
 import timber.log.Timber
 

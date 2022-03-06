@@ -1,6 +1,6 @@
 package com.onats.characters_ui_components.presentation.charactercomponentstates
 
-import com.onats.characters_ui_components.presentation.charactercomponentstates.characterdisplaystates.CharacterDisplayComponentStates
+import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterDisplayComponentStates
 import com.onats.common_ui.presentation.ScreenState
 
 sealed class CharacterScreenStates(
