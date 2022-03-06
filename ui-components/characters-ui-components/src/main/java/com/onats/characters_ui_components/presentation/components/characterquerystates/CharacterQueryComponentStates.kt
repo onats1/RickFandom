@@ -1,5 +1,6 @@
-package com.onats.characters_ui_components.presentation.characterstates
+package com.onats.characters_ui_components.presentation.charactercomponentstates
 
+import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.ErrorTypes
 import com.onats.common_ui.presentation.ComponentState
 import com.onats.core_character.models.CharacterSummary
 
