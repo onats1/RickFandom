@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import com.onats.characters_ui_components.R
 import com.onats.characters_ui_components.presentation.CharacterViewModel
-import com.onats.characters_ui_components.presentation.charactercomponentstates.CharacterDisplayScreenStates
+import com.onats.characters_ui_components.presentation.charactercomponentstates.CharacterScreenStates
 import com.onats.characters_ui_components.presentation.components.CharactersDisplayComponent
 import com.onats.common_ui.components.AppBarInfo
 import timber.log.Timber
@@ -34,7 +34,7 @@ fun CharactersScreen(
         }
     ) {
         when (val screenStateValue = charactersState.value) {
-            is CharacterDisplayScreenStates.CharacterDisplayComponentState -> {
+            is CharacterScreenStates.CharacterDisplayComponentState -> {
                 CharactersDisplayComponent(state = screenStateValue.characterScreenComponents.characterData)
             }
         }

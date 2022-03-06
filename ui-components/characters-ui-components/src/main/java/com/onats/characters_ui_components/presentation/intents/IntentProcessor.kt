@@ -17,8 +17,8 @@ constructor(
 
     suspend fun processIntent(
         intent: MVIIntent,
-        currentScreenState: CharacterDisplayScreenStates,
-        updateScreenState: (CharacterDisplayScreenStates) -> Unit
+        currentScreenState: CharacterScreenStates,
+        updateScreenState: (CharacterScreenStates) -> Unit
     ) {
         when (intent) {
             LoadCharacters -> {
