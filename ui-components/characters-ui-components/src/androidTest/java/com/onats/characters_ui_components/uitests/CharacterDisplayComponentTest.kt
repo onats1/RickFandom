@@ -42,6 +42,7 @@ class CharacterDisplayComponentTest {
         val verticalGrid = composeTestRule.onNodeWithTag("charactersGridDisplay")
         verticalGrid.assertExists()
         verticalGrid.assertIsDisplayed()
-        verticalGrid.performScrollToIndex(9).assertExists()
+        val lastVerticalGridItem = charactersLoadedState.characterData.characters.size / 2
+        verticalGrid.performScrollToIndex(lastVerticalGridItem - 1).assertExists()
     }
 }
