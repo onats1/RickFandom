@@ -7,6 +7,8 @@ import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.onats.characters_ui_components.presentation.components.CharacterSummaryCard
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterDisplayComponentStates
@@ -18,7 +20,9 @@ internal fun CharactersDisplayComponent(
 ) {
     if (state is CharacterDisplayComponentStates.LoadingState) {
         Center {
-            CircularProgressIndicator()
+            CircularProgressIndicator(
+                modifier = Modifier.testTag("characterDisplayProgress")
+            )
         }
     } else {
         val characters = state.data.characters
@@ -30,6 +34,7 @@ internal fun CharactersDisplayComponent(
                 top = 16.dp,
                 bottom = 56.dp
             ),
+            modifier = Modifier.testTag("charactersGridDisplay")
         ) {
             items(characters.size) {
                 CharacterSummaryCard(character = characters[it]) {
