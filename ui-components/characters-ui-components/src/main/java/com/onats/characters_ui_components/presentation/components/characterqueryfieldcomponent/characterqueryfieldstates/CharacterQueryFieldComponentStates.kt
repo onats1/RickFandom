@@ -1,0 +1,17 @@
+package com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.characterqueryfieldstates
+
+sealed class CharacterQueryFieldComponentStates(val componentData: CharacterQueryFieldData = CharacterQueryFieldData()) {
+    object InitialState: CharacterQueryFieldComponentStates()
+    data class QueryInProgress(val data: CharacterQueryFieldData): CharacterQueryFieldComponentStates()
+}
+
+
+data class CharacterQueryFieldData(
+    val query: String = ""
+)
+
+fun CharacterQueryFieldComponentStates.reduceToQueryInProgressState(query: String): CharacterQueryFieldData {
+    return componentData.copy(
+        query = query
+    )
+}
