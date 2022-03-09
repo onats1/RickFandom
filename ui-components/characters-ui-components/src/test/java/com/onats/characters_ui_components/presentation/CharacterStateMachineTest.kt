@@ -2,7 +2,6 @@ package com.onats.characters_ui_components.presentation
 
 import com.google.common.truth.Truth.assertThat
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterDisplayComponentStates
-import com.onats.characters_ui_components.presentation.charactercomponentstates.CharacterScreenStates
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterComponentResults
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterComponentStateMachine
 import org.junit.Test

@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import com.onats.characters_ui_components.R
 import com.onats.characters_ui_components.presentation.CharacterViewModel
-import com.onats.characters_ui_components.presentation.charactercomponentstates.CharacterScreenStates
+import com.onats.characters_ui_components.presentation.CharacterScreenStates
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.CharactersDisplayComponent
 import com.onats.common_ui.components.AppBarInfo
 import timber.log.Timber
@@ -24,13 +24,7 @@ fun CharactersScreen(
     Scaffold(
         backgroundColor = Color.White,
         topBar = {
-            AppBarInfo(
-                title = stringResource(id = R.string.character),
-                searchValue = text,
-            ) { searchValue ->
-                text = searchValue
-                Timber.e(searchValue)
-            }
+
         }
     ) {
         when (val screenStateValue = charactersState.value) {

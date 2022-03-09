@@ -2,7 +2,6 @@ package com.onats.characters_ui_components.presentation
 
 import com.google.common.truth.Truth.assertThat
 import com.onats.characters_ui_components.fakes.GetAllCharactersUseCaseMock
-import com.onats.characters_ui_components.presentation.charactercomponentstates.CharacterScreenStates
 import com.onats.characters_ui_components.presentation.intents.CharacterIntentProcessor
 import com.onats.characters_ui_components.presentation.intents.LoadCharacters
 import com.onats.core_character.usecases.GetAllCharactersUseCase

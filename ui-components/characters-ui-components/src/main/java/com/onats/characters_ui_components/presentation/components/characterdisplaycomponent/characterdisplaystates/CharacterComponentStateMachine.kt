@@ -1,6 +1,7 @@
 package com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates
 
-import com.onats.characters_ui_components.presentation.charactercomponentstates.*
+import com.onats.characters_ui_components.presentation.CharacterScreenStates
+import com.onats.characters_ui_components.presentation.reduceToCharacterDisplayState
 import com.onats.common_ui.presentation.MviResults
 import com.onats.core_character.models.Character
 

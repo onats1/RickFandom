@@ -1,8 +1,10 @@
 package com.onats.characters_ui_components.presentation.intents
 
-import com.onats.characters_ui_components.presentation.charactercomponentstates.*
+import com.onats.characters_ui_components.presentation.CharacterScreenStates
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterComponentResults
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterComponentStateMachine
+import com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.characterqueryfieldstates.CharacterQueryComponentStateMachine
+import com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.characterqueryfieldstates.CharacterQueryFieldResults
 import com.onats.common.DomainResult
 import com.onats.common_ui.presentation.MVIIntent
 import com.onats.core_character.usecases.GetAllCharactersUseCase
@@ -34,6 +36,15 @@ constructor(
                         updateScreenState(charactersLoadedState)
                     }
                 }
+            }
+
+            is QueryCharacters -> {
+                val queryInProgressState = CharacterQueryComponentStateMachine.transform(
+                    CharacterQueryFieldResults.SearchQuery(intent.query),
+                    currentScreenState
+                )
+                updateScreenState(queryInProgressState)
+
             }
         }
     }
