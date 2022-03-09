@@ -1,4 +1,4 @@
-package com.onats.characters_ui_components.presentation.charactercomponentstates
+package com.onats.characters_ui_components.presentation.components.characterquerydisplay
 
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.ErrorTypes
 import com.onats.common_ui.presentation.ComponentState
