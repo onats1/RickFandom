@@ -13,18 +13,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.onats.characters.ui.CharacterViewModelImpl
-import com.onats.characters.ui.CharactersBaseDisplay
-import com.onats.characters_ui_components.presentation.CharacterViewModel
-import com.onats.home.ui.HomeScreen
 import com.onats.characters_ui_components.screens.CharactersScreen
 import com.onats.episodes.ui.EpisodesScreen
-import com.onats.location.ui.LocationScreen
+import com.onats.home.ui.HomeScreen
 
 sealed class NavigationItem(var route: String, var icon: Int, var title: String) {
     object Home : NavigationItem("home", R.drawable.home_icon, "Home")
     object Characters : NavigationItem("music", R.drawable.characters_icon, "Characters")
     object Episodes : NavigationItem("movies", R.drawable.episodes_icon, "Episodes")
-    object Location : NavigationItem("books", R.drawable.location_icon, "Locations")
 }
 
 @Composable
@@ -32,8 +28,7 @@ fun BottomNavigationBar(navController: NavController) {
     val items = listOf(
         NavigationItem.Home,
         NavigationItem.Episodes,
-        NavigationItem.Characters,
-        NavigationItem.Location
+        NavigationItem.Characters
     )
 
     BottomNavigation(
@@ -74,14 +69,11 @@ fun Screens(navController: NavHostController) {
         composable(NavigationItem.Home.route) {
             HomeScreen()
         }
-        composable(NavigationItem.Characters.route) {
-            CharactersScreen(characterScreenViewModel = hiltViewModel<CharacterViewModelImpl>())
-        }
         composable(NavigationItem.Episodes.route) {
             EpisodesScreen()
         }
-        composable(NavigationItem.Location.route) {
-            LocationScreen()
+        composable(NavigationItem.Characters.route) {
+            CharactersScreen(characterScreenViewModel = hiltViewModel<CharacterViewModelImpl>())
         }
     }
 }
