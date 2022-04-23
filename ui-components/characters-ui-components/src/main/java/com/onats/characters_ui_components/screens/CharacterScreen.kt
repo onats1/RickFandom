@@ -4,7 +4,9 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import com.onats.characters_ui_components.presentation.CharacterViewModel
 import com.onats.characters_ui_components.presentation.CharacterScreenStates
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.CharactersDisplayComponent
@@ -21,6 +23,7 @@ fun CharactersScreen(
     val charactersState = characterScreenViewModel.screenState.collectAsState()
 
     Scaffold(
+        modifier = Modifier.testTag("character_screen_tag"),
         backgroundColor = Color.White,
         topBar = {
             CharacterQueryHeader(
@@ -34,7 +37,10 @@ fun CharactersScreen(
     ) {
         when (val screenStateValue = charactersState.value) {
             is CharacterScreenStates.CharacterDisplayComponentState -> {
-                CharactersDisplayComponent(state = screenStateValue.characterScreenComponents.characterData)
+                CharactersDisplayComponent(
+                    modifier = Modifier.testTag("characters_display").testTag("characters_display"),
+                    state = screenStateValue.characterScreenComponents.characterData
+                )
             }
             is CharacterScreenStates.CharacterQueryFieldComponentState -> {
                 when (screenStateValue.characterScreenComponents.characterQueryFieldData) {
