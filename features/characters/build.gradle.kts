@@ -2,6 +2,7 @@ plugins {
     androidLibrary
     kotlinAndroid
     kotlinKapt
+    daggerAndroidPlugin
 }
 
 android {
@@ -29,6 +30,12 @@ android {
 
     buildFeatures {
         compose = true
+    }
+
+    packagingOptions {
+        exclude("META-INF/AL2.0")
+        exclude("META-INF/*.kotlin_module")
+        exclude("META-INF/LGPL2.1")
     }
 
     composeOptions {
@@ -65,6 +72,7 @@ dependencies {
     daggerTestDependencies()
     truthTestDependencies()
     androidTestImplementation(TestDependencies.ESPRESSO)
-
-
+    androidTestImplementation(TestDependencies.COMPOSE_UI)
+    androidTestImplementation(TestDependencies.DAGGER_HILT_ANDROID_TEST)
+    debugImplementation(TestDependencies.COMPOSE_UI_MANIFEST)
 }

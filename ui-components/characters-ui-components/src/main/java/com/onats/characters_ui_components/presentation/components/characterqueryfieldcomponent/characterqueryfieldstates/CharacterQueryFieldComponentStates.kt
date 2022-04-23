@@ -2,7 +2,7 @@ package com.onats.characters_ui_components.presentation.components.characterquer
 
 sealed class CharacterQueryFieldComponentStates(val componentData: CharacterQueryFieldData = CharacterQueryFieldData()) {
     object InitialState: CharacterQueryFieldComponentStates()
-    data class QueryInProgress(val data: CharacterQueryFieldData): CharacterQueryFieldComponentStates()
+    data class QueryInProgress(private val data: CharacterQueryFieldData): CharacterQueryFieldComponentStates(data)
 }
 
 

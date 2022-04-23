@@ -9,6 +9,7 @@ import com.onats.common.DomainResult
 import com.onats.common_ui.presentation.MVIIntent
 import com.onats.core_character.usecases.GetAllCharactersUseCase
 import kotlinx.coroutines.flow.collect
+import timber.log.Timber
 import javax.inject.Inject
 
 class CharacterIntentProcessor
@@ -38,13 +39,27 @@ constructor(
                 }
             }
 
-            is QueryCharacters -> {
-                val queryInProgressState = CharacterQueryComponentStateMachine.transform(
-                    CharacterQueryFieldResults.SearchQuery(intent.query),
-                    currentScreenState
-                )
-                updateScreenState(queryInProgressState)
+            is QueryInProgress -> {
+                val query = intent.query
 
+                if (query.isEmpty()) {
+                    val emptyState = CharacterQueryComponentStateMachine.transform(
+                        CharacterQueryFieldResults.EmptyQuery,
+                        currentScreenState
+                    )
+                    updateScreenState(emptyState)
+                } else {
+                    val queryInProgressState = CharacterQueryComponentStateMachine.transform(
+                        CharacterQueryFieldResults.SearchQuery(intent.query),
+                        currentScreenState
+                    )
+                    updateScreenState(queryInProgressState)
+                }
+            }
+
+            is ExecuteQuery -> {
+                val query = intent.query
+                Timber.e(query)
             }
         }
     }

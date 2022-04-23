@@ -15,7 +15,8 @@ import com.onats.characters_ui_components.presentation.components.characterdispl
 import com.onats.common_ui.components.Center
 
 @[Composable ExperimentalFoundationApi ExperimentalMaterialApi]
-internal fun CharactersDisplayComponent(
+fun CharactersDisplayComponent(
+    modifier: Modifier = Modifier,
     state: CharacterDisplayComponentStates
 ) {
     if (state is CharacterDisplayComponentStates.LoadingState) {

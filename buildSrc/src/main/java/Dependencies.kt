@@ -93,7 +93,7 @@ object Versions {
     const val TRUTH_VERSION = "1.1.3"
     const val MOCKITO_VERSION = "3.11.2"
 
-    const val DAGGER_HILT = "2.36"
+    const val DAGGER_HILT = "2.41"
 
     //Network
     const val RETROFIT = "2.9.0"
