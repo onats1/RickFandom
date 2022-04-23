@@ -7,7 +7,6 @@ import com.onats.characters_ui_components.presentation.intents.LoadCharacters
 import com.onats.common_ui.presentation.MVIIntent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,13 +18,11 @@ constructor(
 
     init {
         processIntent(LoadCharacters)
-        Timber.e("intent called")
     }
 
     override fun processIntent(intent: MVIIntent) {
         viewModelScope.launch {
             characterIntentProcessor.processIntent(intent = intent, currentScreenState = currentScreenStateValue) { intentResult ->
-                Timber.e("result emitted")
                 setScreenState(intentResult)
             }
         }

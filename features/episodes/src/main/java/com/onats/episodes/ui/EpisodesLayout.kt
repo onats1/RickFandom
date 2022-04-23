@@ -27,12 +27,13 @@ fun EpisodesScreen() {
 
     Scaffold(
         backgroundColor = Color.White,
-        topBar = { AppBarInfo(
-            title = stringResource(id = R.string.episode),
-            searchValue = episodeQuery
-        ) { queryParam ->
-            episodeQuery = queryParam
-        }}
+        topBar = {
+            AppBarInfo(
+                searchValue = episodeQuery,
+                onSearchValueChange = { episodeQuery = it },
+                executeQuery = {}
+            )
+        }
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,

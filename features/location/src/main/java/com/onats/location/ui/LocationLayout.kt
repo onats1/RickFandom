@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.sp
 import com.onats.common_ui.components.AppBarInfo
 import com.onats.common_ui.theme.RickFandomTheme
 import com.onats.location.R
-import timber.log.Timber
 
 @Composable
 fun LocationScreen() {
@@ -28,11 +27,10 @@ fun LocationScreen() {
         backgroundColor = Color.White,
         topBar = {
             AppBarInfo(
-                title = stringResource(id = R.string.location),
-                searchValue = locationQuery
-            ) { locationParam ->
-                locationQuery = locationParam
-            }
+                searchValue = locationQuery,
+                onSearchValueChange = { locationQuery = it },
+                executeQuery = {}
+            )
         }
     ) {
         Column(

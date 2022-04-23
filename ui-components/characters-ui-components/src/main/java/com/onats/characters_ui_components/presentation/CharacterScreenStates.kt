@@ -4,6 +4,7 @@ import com.onats.characters_ui_components.presentation.components.characterdispl
 import com.onats.characters_ui_components.presentation.components.characterquerydisplay.CharacterSearchComponentStates
 import com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.characterqueryfieldstates.CharacterQueryFieldComponentStates
 import com.onats.common_ui.presentation.ScreenState
+import timber.log.Timber
 
 sealed class CharacterScreenStates(
     val characterScreenComponents: CharacterScreenComponents = CharacterScreenComponents()
