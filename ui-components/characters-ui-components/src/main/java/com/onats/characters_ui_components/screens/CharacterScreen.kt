@@ -3,18 +3,19 @@ package com.onats.characters_ui_components.screens
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
-import com.onats.characters_ui_components.presentation.CharacterViewModel
 import com.onats.characters_ui_components.presentation.CharacterScreenStates
+import com.onats.characters_ui_components.presentation.CharacterViewModel
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.CharactersDisplayComponent
 import com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.CharacterQueryHeader
 import com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.characterqueryfieldstates.CharacterQueryFieldComponentStates
+import com.onats.characters_ui_components.presentation.components.charactersearchresults.CharacterSearchResultComponent
 import com.onats.characters_ui_components.presentation.intents.ExecuteQuery
 import com.onats.characters_ui_components.presentation.intents.QueryInProgress
-import timber.log.Timber
 
 @[Composable ExperimentalMaterialApi ExperimentalFoundationApi]
 fun CharactersScreen(
@@ -48,8 +49,9 @@ fun CharactersScreen(
                         CharactersDisplayComponent(state = screenStateValue.characterScreenComponents.characterData)
                     }
                     is CharacterQueryFieldComponentStates.QueryInProgress -> {
-                        CharacterQueryScreen()
+                        CharacterSearchResultComponent(state = screenStateValue.characterScreenComponents.characterSearchData)
                     }
+
                 }
             }
         }

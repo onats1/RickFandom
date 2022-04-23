@@ -1,4 +1,4 @@
-package com.onats.characters_ui_components.presentation.components.characterquerydisplay
+package com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate
 
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.ErrorTypes
 import com.onats.common_ui.presentation.ComponentState
@@ -14,14 +14,12 @@ sealed class CharacterSearchComponentStates(val data: CharacterSearchData = Char
 }
 
 data class CharacterSearchData(
-    val query: String = "",
     val queryResults: List<CharacterSummary> = listOf(),
     val errorType: ErrorTypes = ErrorTypes.NONE
 )
 
-fun CharacterSearchComponentStates.reduceToCharactersLoadedState(query: String, characters: List<CharacterSummary>): CharacterSearchData {
+fun CharacterSearchComponentStates.reduceToCharactersLoadedState(characters: List<CharacterSummary>): CharacterSearchData {
     return data.copy(
-        query = query,
         queryResults = characters
     )
 }
