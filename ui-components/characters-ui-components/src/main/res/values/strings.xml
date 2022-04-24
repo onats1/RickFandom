@@ -4,4 +4,6 @@
     <string name="network_error_occured">Network Error Occurred. Try again</string>
     <string name="no_error">no error</string>
     <string name="retry">Reload</string>
+    <string name="no_matching_result">No characters matched your query</string>
+    <string name="query_not_found">Couldn\'t find that. Wanna try something else?</string>
 </resources>

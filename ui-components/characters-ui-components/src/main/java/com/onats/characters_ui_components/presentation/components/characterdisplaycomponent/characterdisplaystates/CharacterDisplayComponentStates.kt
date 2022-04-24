@@ -12,7 +12,7 @@ sealed class CharacterDisplayComponentStates(val data: CharacterDisplayData = Ch
     data class ExistingState(val characterData: CharacterDisplayData): CharacterDisplayComponentStates(characterData)
     data class CharactersLoaded(val characterData: CharacterDisplayData) :
         CharacterDisplayComponentStates(characterData)
-    data class ErrorState(val characterData: CharacterDisplayData): CharacterDisplayComponentStates()
+    data class ErrorState(val characterData: CharacterDisplayData): CharacterDisplayComponentStates(characterData)
 }
 
 data class CharacterDisplayData(

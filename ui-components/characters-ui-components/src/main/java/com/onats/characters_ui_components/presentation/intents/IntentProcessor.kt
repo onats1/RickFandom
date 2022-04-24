@@ -8,13 +8,13 @@ import com.onats.characters_ui_components.presentation.components.characterquery
 import com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.characterqueryfieldstates.CharacterQueryFieldResults
 import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchComponentResult
 import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchComponentStateMachine
+import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchErrorTypes
 import com.onats.common.DomainResult
 import com.onats.common_ui.presentation.MVIIntent
 import com.onats.core_character.usecases.GetAllCharactersUseCase
 import com.onats.core_character.usecases.SearchCharactersUseCase
 import com.onats.core_character.usecases.SearchQueryRequest
 import kotlinx.coroutines.flow.collect
-import timber.log.Timber
 import javax.inject.Inject
 
 class CharacterIntentProcessor
@@ -80,12 +80,27 @@ constructor(
 
                 queryCharactersUseCase(SearchQueryRequest(query)).collect { domainResult ->
                     if (domainResult is DomainResult.Success) {
+                        val characters = domainResult.data
+                        if (characters.isEmpty()) {
+                            val state = CharacterSearchComponentStateMachine.transform(
+                                CharacterSearchComponentResult.NoMatches,
+                                currentScreenState
+                            )
+                            updateScreenState(state)
+                        } else {
+                            val state = CharacterSearchComponentStateMachine.transform(
+                                CharacterSearchComponentResult.SuccessResult(domainResult.data),
+                                currentScreenState
+                            )
+                            updateScreenState(state)
+                        }
+                    } else if (domainResult is DomainResult.Error) {
                         val state = CharacterSearchComponentStateMachine.transform(
-                            CharacterSearchComponentResult.SuccessResult(domainResult.data),
+                            CharacterSearchComponentResult.Error(CharacterSearchErrorTypes.NETWORK_ERROR),
                             currentScreenState
                         )
                         updateScreenState(state)
-                    } //Handle error
+                    }
                 }
             }
         }

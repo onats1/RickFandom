@@ -44,7 +44,6 @@ fun CharactersScreen(
             is CharacterScreenStates.CharacterDisplayComponentState -> {
                 CharactersDisplayComponent(
                     modifier = Modifier
-                        .testTag("characters_display")
                         .testTag("characters_display"),
                     state = screenStateValue.characterScreenComponents.characterData
                 ) {
@@ -65,7 +64,10 @@ fun CharactersScreen(
             is CharacterScreenStates.CharacterSearchResultsState -> {
                 CharacterSearchResultComponent(
                     state = screenStateValue.characterScreenComponents.characterSearchData
-                )
+                ) {
+                    val currentQuery = screenStateValue.characterScreenComponents.characterQueryFieldData.componentData.query
+                    characterScreenViewModel.processIntent(ExecuteQuery(currentQuery))
+                }
             }
         }
     }

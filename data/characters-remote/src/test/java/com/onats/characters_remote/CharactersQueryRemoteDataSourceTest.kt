@@ -50,7 +50,7 @@ class CharactersQueryRemoteDataSourceTest {
     fun `test that error response returns application network error`() = runBlocking {
         `when`(mockApiService.queryCharacterByName("")).thenAnswer {
             Response.error<List<Character>>(
-                404, "Page not found"
+                401, "Page not found"
                     .toResponseBody("application/json".toMediaTypeOrNull())
             )
         }
@@ -61,6 +61,27 @@ class CharactersQueryRemoteDataSourceTest {
         dataSource.queryCharacter("").collect { characterResult ->
             Truth.assertThat(characterResult.error).isInstanceOf(ApplicationError.NetworkError::class.java)
             Truth.assertThat(characterResult.data).isNull()
+        }
+    }
+
+    @Test
+    fun `test that 404 error returns empty list`() = runBlocking {
+        `when`(mockApiService.queryCharacterByName("")).thenAnswer {
+            Response.error<List<Character>>(
+                404, "Page not found"
+                    .toResponseBody("application/json".toMediaTypeOrNull())
+            )
+        }
+        val dataSource = CharactersRemoteDataSourceImpl(
+            charactersApiService = mockApiService,
+            charactersMapper = mockCharacterMapper
+        )
+        dataSource.queryCharacter("").collect { characterResult ->
+            Truth.assertThat(characterResult.error).isInstanceOf(ApplicationError.NoError::class.java)
+            Truth.assertThat(characterResult.data).isNotNull()
+            characterResult.data?.let {
+                assert(it.isEmpty())
+            }
         }
     }
 
