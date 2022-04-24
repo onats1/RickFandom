@@ -19,12 +19,33 @@ constructor(
         remoteDataSource.getAllCharacters().collect { result ->
             result.data?.let { characters ->
                 emit(
-                    DomainResult.Success(
+                    DomainResult.Success<List<Character>>(
                         data = characters
                     )
                 )
             }
             result.error.let { error ->
+                if (error != ApplicationError.NoError) {
+                    emit(
+                        DomainResult.Error<List<Character>>(
+                            error = error
+                        )
+                    )
+                }
+            }
+        }
+    }
+
+    override suspend fun searchCharacters(query: String): Flow<DomainResult<List<Character>>> = flow {
+        remoteDataSource.queryCharacter(query).collect { dataSourceResult ->
+            dataSourceResult.data?.let { characters ->
+                emit(
+                    DomainResult.Success<List<Character>>(
+                        data = characters
+                    )
+                )
+            }
+            dataSourceResult.error.let { error ->
                 if (error != ApplicationError.NoError) {
                     emit(
                         DomainResult.Error<List<Character>>(

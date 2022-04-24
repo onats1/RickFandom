@@ -7,4 +7,6 @@ import kotlinx.coroutines.flow.Flow
 interface CharactersRepository {
 
     suspend fun getAllCharacters(): Flow<DomainResult<List<Character>>>
+
+    suspend fun searchCharacters(query: String): Flow<DomainResult<List<Character>>>
 }

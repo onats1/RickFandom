@@ -7,4 +7,6 @@ import kotlinx.coroutines.flow.Flow
 interface CharactersRemoteDataSource {
 
     suspend fun getAllCharacters(): Flow<Result<List<Character>>>
+
+    suspend fun queryCharacter(query: String): Flow<Result<List<Character>>>
 }

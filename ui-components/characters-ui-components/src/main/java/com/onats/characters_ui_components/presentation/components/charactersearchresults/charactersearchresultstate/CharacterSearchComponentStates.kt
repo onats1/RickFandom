@@ -18,6 +18,10 @@ data class CharacterSearchData(
     val errorType: ErrorTypes = ErrorTypes.NONE
 )
 
+fun CharacterSearchComponentStates.reduceToLoadingState(): CharacterSearchData {
+    return data
+}
+
 fun CharacterSearchComponentStates.reduceToCharactersLoadedState(characters: List<CharacterSummary>): CharacterSearchData {
     return data.copy(
         queryResults = characters

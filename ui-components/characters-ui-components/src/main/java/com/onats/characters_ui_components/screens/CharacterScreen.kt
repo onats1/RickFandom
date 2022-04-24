@@ -39,7 +39,9 @@ fun CharactersScreen(
         when (val screenStateValue = charactersState.value) {
             is CharacterScreenStates.CharacterDisplayComponentState -> {
                 CharactersDisplayComponent(
-                    modifier = Modifier.testTag("characters_display").testTag("characters_display"),
+                    modifier = Modifier
+                        .testTag("characters_display")
+                        .testTag("characters_display"),
                     state = screenStateValue.characterScreenComponents.characterData
                 )
             }
@@ -51,8 +53,12 @@ fun CharactersScreen(
                     is CharacterQueryFieldComponentStates.QueryInProgress -> {
                         CharacterSearchResultComponent(state = screenStateValue.characterScreenComponents.characterSearchData)
                     }
-
                 }
+            }
+            is CharacterScreenStates.CharacterSearchResultsState -> {
+                CharacterSearchResultComponent(
+                    state = screenStateValue.characterScreenComponents.characterSearchData
+                )
             }
         }
     }

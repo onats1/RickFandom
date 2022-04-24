@@ -2,6 +2,7 @@ package com.onats.characters.di
 
 import com.onats.characters_ui_components.presentation.intents.CharacterIntentProcessor
 import com.onats.core_character.usecases.GetAllCharactersUseCase
+import com.onats.core_character.usecases.SearchCharactersUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,8 +14,9 @@ object CharacterPresentationModule {
 
     @[Singleton Provides]
     fun provideCharacterIntentProcessor(
-        getAllCharactersUseCase: GetAllCharactersUseCase
+        getAllCharactersUseCase: GetAllCharactersUseCase,
+        searchCharactersUseCase: SearchCharactersUseCase
     ): CharacterIntentProcessor {
-        return CharacterIntentProcessor(getAllCharactersUseCase)
+        return CharacterIntentProcessor(getAllCharactersUseCase, searchCharactersUseCase)
     }
 }
