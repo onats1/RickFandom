@@ -86,13 +86,13 @@ fun CharacterSummaryCard(
 @Composable
 fun PreviewCharacterCard() {
     RickFandomTheme {
-        CharacterSummaryCard(character = demoCharacter) {
+        CharacterSummaryCard(character = demoCharacterSummary) {
 
         }
     }
 }
 
-val demoCharacter = CharacterSummary(
+val demoCharacterSummary = CharacterSummary(
     id = 1,
     name = "Rick Sanchez",
     image = "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
