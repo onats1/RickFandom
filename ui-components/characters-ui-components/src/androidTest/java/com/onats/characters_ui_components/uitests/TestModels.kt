@@ -2,6 +2,8 @@ package com.onats.characters_ui_components.uitests
 
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterDisplayComponentStates
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterDisplayData
+import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchComponentStates
+import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchData
 import com.onats.core_character.models.CharacterSummary
 
 val testCharacterSummary = CharacterSummary(
@@ -32,3 +34,9 @@ val charactersLoadedState = CharacterDisplayComponentStates.CharactersLoaded(Cha
 ))
 
 val loadingTestState = CharacterDisplayComponentStates.LoadingState(CharacterDisplayData())
+
+val characterSearchLoadingState = CharacterSearchComponentStates.LoadingState(CharacterSearchData())
+
+val charactersSearchLoadedState = CharacterSearchComponentStates.CharactersSearched(CharacterSearchData(
+    characters
+))

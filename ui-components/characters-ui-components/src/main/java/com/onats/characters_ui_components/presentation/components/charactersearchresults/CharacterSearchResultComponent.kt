@@ -29,7 +29,7 @@ fun CharacterSearchResultComponent(
         is CharacterSearchComponentStates.LoadingState -> {
             Center {
                 CircularProgressIndicator(
-                    modifier = Modifier.testTag("characterDisplayProgress")
+                    modifier = Modifier.testTag("characterSearchProgress")
                 )
             }
         }
@@ -43,7 +43,7 @@ fun CharacterSearchResultComponent(
                     top = 16.dp,
                     bottom = 56.dp
                 ),
-                modifier = Modifier.testTag("charactersGridDisplay")
+                modifier = Modifier.testTag("charactersSearchGridDisplay")
             ) {
                 items(characters.size) {
                     CharacterSummaryCard(character = characters[it]) {
