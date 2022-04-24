@@ -3,6 +3,7 @@ package com.onats.characters.di
 import com.onats.characters.BuildConfig
 import com.onats.characters_domain.repository.CharactersRepositoryImpl
 import com.onats.characters_domain.usecase.GetAllCharactersUseCaseImpl
+import com.onats.characters_domain.usecase.SearchCharactersUseCaseImpl
 import com.onats.characters_remote.data.CharactersRemoteDataSourceImpl
 import com.onats.characters_remote.mappers.CharacterMapperImpl
 import com.onats.characters_remote.mappers.LocationMapperImpl
@@ -15,7 +16,7 @@ import com.onats.core_android_character.data.CharactersApiService
 import com.onats.core_character.data.CharactersRemoteDataSource
 import com.onats.core_character.domain.CharactersRepository
 import com.onats.core_character.usecases.GetAllCharactersUseCase
-import dagger.Binds
+import com.onats.core_character.usecases.SearchCharactersUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,28 +28,24 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 internal object CharactersModule {
 
-    @Provides
-    @Singleton
+    @[Provides Singleton]
     fun provideCharacterApiService(): CharactersApiService = NetworkModule.retrofitClient(
         serviceClass = CharactersApiService::class.java,
         baseUrl = BuildConfig.BASE_URL,
         converterFactory = MoshiConverterFactory.create()
     )
 
-    @Provides
-    @Singleton
+    @[Provides Singleton]
     fun provideGetAllCharactersUseCase(charactersRepository: CharactersRepository): GetAllCharactersUseCase {
         return GetAllCharactersUseCaseImpl(charactersRepository)
     }
 
-    @Provides
-    @Singleton
+    @[Provides Singleton]
     fun provideCharacterRepository(charactersDataSource: CharactersRemoteDataSource): CharactersRepository {
         return CharactersRepositoryImpl(charactersDataSource)
     }
 
-    @Provides
-    @Singleton
+    @[Provides Singleton]
     fun provideCharacterDataSource(
         charactersApiService: CharactersApiService,
         characterMapper: CharacterMapper
@@ -56,20 +53,22 @@ internal object CharactersModule {
         return CharactersRemoteDataSourceImpl(characterMapper, charactersApiService)
     }
 
-    @Provides
-    @Singleton
+    @[Provides Singleton]
     fun provideCharacterMapper(
         originMapper: OriginMapper,
         locationMapper: LocationMapper
     ): CharacterMapper = CharacterMapperImpl(originMapper, locationMapper)
 
+    @[Provides Singleton]
+    fun provideCharacterQueryUseCase(
+        charactersRepository: CharactersRepository
+    ): SearchCharactersUseCase = SearchCharactersUseCaseImpl(charactersRepository)
 
-    @Provides
-    @Singleton
+
+    @[Provides Singleton]
     fun provideLocationMapper(): LocationMapper = LocationMapperImpl()
 
-    @Provides
-    @Singleton
+    @[Provides Singleton]
     fun provideOriginMapper(): OriginMapper = OriginMapperImpl()
 
 }

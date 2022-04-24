@@ -7,8 +7,6 @@ import com.onats.common.DomainResult
 import com.onats.common.Result
 import com.onats.core_character.data.CharactersRemoteDataSource
 import com.onats.core_character.models.Character
-import com.onats.core_character.models.Location
-import com.onats.core_character.models.Origin
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
@@ -16,35 +14,33 @@ import org.junit.Test
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 
-
 @ExperimentalStdlibApi
-class CharactersRepositoryTest {
+class CharacterQueryRepositoryTest {
 
     private val mockCharacterDataSource = mock(CharactersRemoteDataSource::class.java)
 
     @Test
-    fun `test repository success state returns Domain success with list`() = runBlocking {
-        `when`(mockCharacterDataSource.getAllCharacters()).thenAnswer {
+    fun `test that successful data result returns success`() = runBlocking {
+        `when`(mockCharacterDataSource.queryCharacter("")).thenAnswer {
             flow<Result<List<Character>>> {
                 emit(
-                    Result.data(
+                    Result.data<List<Character>>(
                         data = fakeCharacterList
                     )
                 )
             }
         }
-        val characterRepo = CharactersRepositoryImpl(
+        val repository = CharactersRepositoryImpl(
             remoteDataSource = mockCharacterDataSource
         )
-        characterRepo.getAllCharacters().collect { domainResult ->
+        repository.searchCharacters("").collect { domainResult ->
             assertThat(domainResult).isInstanceOf(DomainResult.Success::class.java)
-            assertThat((domainResult as DomainResult.Success).data).isEqualTo(fakeCharacterList)
         }
     }
 
     @Test
-    fun `test repository error state returns domain error`() = runBlocking {
-        `when`(mockCharacterDataSource.getAllCharacters()).thenAnswer {
+    fun `test that error result returns error`() = runBlocking {
+        `when`(mockCharacterDataSource.queryCharacter("")).thenAnswer {
             flow<Result<List<Character>>> {
                 emit(
                     Result.error(
@@ -53,32 +49,12 @@ class CharactersRepositoryTest {
                 )
             }
         }
+
         val characterRepo = CharactersRepositoryImpl(
             remoteDataSource = mockCharacterDataSource
         )
-        characterRepo.getAllCharacters().collect { domainResult ->
+        characterRepo.searchCharacters("").collect { domainResult ->
             assertThat(domainResult).isInstanceOf(DomainResult.Error::class.java)
         }
-    }
-}
-
-@ExperimentalStdlibApi
-val fakeCharacterList = buildList<Character> {
-    for (x in 0..9) {
-        add(
-            Character(
-                id = 1,
-                name = "Test Rick",
-                status = "Alive",
-                species = "Human",
-                gender = "Male",
-                origin = Origin.NO_ORIGIN,
-                location = Location.NO_LOCATION,
-                episodes = listOf(),
-                image = "",
-                url = "",
-                created = ""
-            )
-        )
     }
 }

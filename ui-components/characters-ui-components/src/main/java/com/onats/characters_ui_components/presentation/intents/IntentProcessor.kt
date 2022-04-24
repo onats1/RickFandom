@@ -5,9 +5,13 @@ import com.onats.characters_ui_components.presentation.components.characterdispl
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterComponentStateMachine
 import com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.characterqueryfieldstates.CharacterQueryComponentStateMachine
 import com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.characterqueryfieldstates.CharacterQueryFieldResults
+import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchComponentResult
+import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchComponentStateMachine
 import com.onats.common.DomainResult
 import com.onats.common_ui.presentation.MVIIntent
 import com.onats.core_character.usecases.GetAllCharactersUseCase
+import com.onats.core_character.usecases.SearchCharactersUseCase
+import com.onats.core_character.usecases.SearchQueryRequest
 import kotlinx.coroutines.flow.collect
 import timber.log.Timber
 import javax.inject.Inject
@@ -15,7 +19,8 @@ import javax.inject.Inject
 class CharacterIntentProcessor
 @Inject
 constructor(
-    private val getAllCharactersUseCase: GetAllCharactersUseCase
+    private val getAllCharactersUseCase: GetAllCharactersUseCase,
+    private val queryCharactersUseCase: SearchCharactersUseCase
 ) {
 
     suspend fun processIntent(
@@ -59,7 +64,22 @@ constructor(
 
             is ExecuteQuery -> {
                 val query = intent.query
-                Timber.e(query)
+
+                val result = CharacterSearchComponentStateMachine.transform(
+                    CharacterSearchComponentResult.Loading,
+                    currentScreenState
+                )
+                updateScreenState(result)
+
+                queryCharactersUseCase(SearchQueryRequest(query)).collect { domainResult ->
+                    if (domainResult is DomainResult.Success) {
+                        val state = CharacterSearchComponentStateMachine.transform(
+                            CharacterSearchComponentResult.SuccessResult(domainResult.data),
+                            currentScreenState
+                        )
+                        updateScreenState(state)
+                    } //Handle error
+                }
             }
         }
     }

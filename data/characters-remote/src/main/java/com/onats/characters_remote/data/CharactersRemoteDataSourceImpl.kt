@@ -8,6 +8,7 @@ import com.onats.core_character.data.CharactersRemoteDataSource
 import com.onats.core_character.models.Character
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
@@ -49,5 +50,36 @@ constructor(
                 )
             )
         }
+    }.flowOn(Dispatchers.IO)
+
+    override suspend fun queryCharacter(query: String): Flow<Result<List<Character>>> = flow {
+        val networkResponse = charactersApiService.queryCharacterByName(query)
+        if (networkResponse.isSuccessful) {
+            val networkResult = networkResponse.body()?.results
+            val searchResults = charactersMapper.mapToDomainList(networkResult)
+            emit(
+                Result.data<List<Character>>(
+                    data = searchResults
+                )
+            )
+        } else {
+            emit(
+                Result.error<List<Character>>(
+                    error = ApplicationError.NetworkError(
+                        errorMessage = "Could not process your request at this time."
+                    )
+                )
+            )
+        }
+    }.catch { e ->
+        val errorException = Exception(e)
+        emit(
+            Result.error<List<Character>>(
+                error = ApplicationError.NetworkError(
+                    errorMessage = "A network error occurred.",
+                    errorException = errorException
+                )
+            )
+        )
     }.flowOn(Dispatchers.IO)
 }
