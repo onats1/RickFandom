@@ -19,7 +19,7 @@ class CharacterDisplayComponentTest {
         composeTestRule.setContent {
             CharactersDisplayComponent(state = loadingTestState)
         }
-        val loadingProgress = composeTestRule.onNode(hasTestTag("characterDisplayProgress"))
+        val loadingProgress = composeTestRule.onNode(hasTestTag("character_loading_progress"))
 
         loadingProgress.assertIsDisplayed()
     }
@@ -29,7 +29,7 @@ class CharacterDisplayComponentTest {
         composeTestRule.setContent {
             CharactersDisplayComponent(state = charactersLoadedState)
         }
-        val loadingProgress = composeTestRule.onNode(hasTestTag("characterDisplayProgress"))
+        val loadingProgress = composeTestRule.onNode(hasTestTag("character_loading_progress"))
 
         loadingProgress.assertDoesNotExist()
     }
@@ -44,5 +44,29 @@ class CharacterDisplayComponentTest {
         verticalGrid.assertIsDisplayed()
         val lastVerticalGridItem = charactersLoadedState.characterData.characters.size / 2
         verticalGrid.performScrollToIndex(lastVerticalGridItem - 1).assertExists()
+    }
+
+    @Test
+    fun testThatErrorStateShowsErrorLayout() {
+        composeTestRule.setContent {
+            CharactersDisplayComponent(state = charactersErrorState)
+        }
+        val errorLayout = composeTestRule.onNodeWithTag("search_error_layout")
+        errorLayout.assertExists()
+        errorLayout.assertIsDisplayed()
+    }
+
+    @Test
+    fun testThatComponentCanRetryOnErrorState() {
+        var retried = false
+        composeTestRule.setContent {
+            CharactersDisplayComponent(state = charactersErrorState) {
+                retried = true
+            }
+        }
+        val button = composeTestRule.onNodeWithTag("search_display_retry_button")
+        button.performClick()
+
+        assert(retried)
     }
 }

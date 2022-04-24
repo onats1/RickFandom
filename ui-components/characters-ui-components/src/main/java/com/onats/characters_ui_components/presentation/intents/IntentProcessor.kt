@@ -3,6 +3,7 @@ package com.onats.characters_ui_components.presentation.intents
 import com.onats.characters_ui_components.presentation.CharacterScreenStates
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterComponentResults
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterComponentStateMachine
+import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.ErrorTypes
 import com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.characterqueryfieldstates.CharacterQueryComponentStateMachine
 import com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.characterqueryfieldstates.CharacterQueryFieldResults
 import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchComponentResult
@@ -40,6 +41,12 @@ constructor(
                         val charactersLoadedState = CharacterComponentStateMachine.transform(
                             CharacterComponentResults.CharactersLoaded(domainResult.data), currentScreenState)
                         updateScreenState(charactersLoadedState)
+                    } else {
+                        val charactersErrorState = CharacterComponentStateMachine.transform(
+                            CharacterComponentResults.Error(ErrorTypes.NETWORK_ERROR),
+                            currentScreenState
+                        )
+                        updateScreenState(charactersErrorState)
                     }
                 }
             }

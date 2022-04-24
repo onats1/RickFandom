@@ -3,4 +3,5 @@
     <string name="character">Characters</string>
     <string name="network_error_occured">Network Error Occurred. Try again</string>
     <string name="no_error">no error</string>
+    <string name="retry">Reload</string>
 </resources>

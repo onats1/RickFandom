@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -61,9 +62,7 @@ fun BottomNavigationBar(navController: NavController) {
     }
 }
 
-@ExperimentalFoundationApi
-@ExperimentalMaterialApi
-@Composable
+@[Composable ExperimentalComposeUiApi ExperimentalMaterialApi ExperimentalFoundationApi]
 fun Screens(navController: NavHostController) {
     NavHost(navController, startDestination = NavigationItem.Home.route) {
         composable(NavigationItem.Home.route) {

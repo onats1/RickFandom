@@ -40,3 +40,5 @@ val characterSearchLoadingState = CharacterSearchComponentStates.LoadingState(Ch
 val charactersSearchLoadedState = CharacterSearchComponentStates.CharactersSearched(CharacterSearchData(
     characters
 ))
+
+val charactersErrorState = CharacterDisplayComponentStates.ErrorState(CharacterDisplayData())
