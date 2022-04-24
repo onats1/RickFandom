@@ -29,6 +29,15 @@ object CharacterComponentStateMachine {
                     updatedCharacterDisplayComponent
                 )
             }
+            is CharacterComponentResults.Error -> {
+                val updatedCharacterDisplayData = characterComponentState.reduceToErrorState(results.errorType)
+                val updatedScreenState = screenStates.reduceToCharacterDisplayState(
+                    CharacterDisplayComponentStates.ErrorState(updatedCharacterDisplayData)
+                )
+                CharacterScreenStates.CharacterDisplayComponentState(
+                    updatedScreenState
+                )
+            }
         }
     }
 }
@@ -36,6 +45,7 @@ object CharacterComponentStateMachine {
 sealed class CharacterComponentResults: MviResults {
     object Loading: CharacterComponentResults()
     data class CharactersLoaded(val characters: List<Character>): CharacterComponentResults()
+    data class Error(val errorType: ErrorTypes): CharacterComponentResults()
 }
 
 

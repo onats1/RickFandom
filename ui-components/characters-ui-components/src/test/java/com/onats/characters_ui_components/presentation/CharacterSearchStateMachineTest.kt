@@ -5,6 +5,7 @@ import com.onats.characters_ui_components.fakes.testCharacters
 import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchComponentResult
 import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchComponentStateMachine
 import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchComponentStates
+import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchErrorTypes
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
@@ -29,6 +30,34 @@ class CharacterSearchStateMachineTest {
         )
         assertThat(transform.characterScreenComponents.characterSearchData).isInstanceOf(
             CharacterSearchComponentStates.CharactersSearched::class.java
+        )
+    }
+
+    @Test
+    fun `assert that empty list returns empty list error state`() = runBlocking {
+        val transform = CharacterSearchComponentStateMachine.transform(
+            CharacterSearchComponentResult.NoMatches,
+            CharacterScreenStates.InitialState
+        )
+        assertThat(transform.characterScreenComponents.characterSearchData).isInstanceOf(
+            CharacterSearchComponentStates.ErrorState::class.java
+        )
+        assertThat(transform.characterScreenComponents.characterSearchData.data.errorType).isEqualTo(
+            CharacterSearchErrorTypes.NO_MATCHING_RESULTS
+        )
+    }
+
+    @Test
+    fun `assert that network error returns error state`() = runBlocking {
+        val transform = CharacterSearchComponentStateMachine.transform(
+            CharacterSearchComponentResult.Error(CharacterSearchErrorTypes.NO_MATCHING_RESULTS),
+            CharacterScreenStates.InitialState
+        )
+        assertThat(transform.characterScreenComponents.characterSearchData).isInstanceOf(
+            CharacterSearchComponentStates.ErrorState::class.java
+        )
+        assertThat(transform.characterScreenComponents.characterSearchData.data.errorType).isEqualTo(
+            CharacterSearchErrorTypes.NETWORK_ERROR
         )
     }
 }

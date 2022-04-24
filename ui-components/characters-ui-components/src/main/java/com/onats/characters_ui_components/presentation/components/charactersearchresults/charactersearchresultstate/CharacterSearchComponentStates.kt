@@ -1,5 +1,7 @@
 package com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate
 
+import androidx.annotation.StringRes
+import com.onats.characters_ui_components.R
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.ErrorTypes
 import com.onats.common_ui.presentation.ComponentState
 import com.onats.core_character.models.CharacterSummary
@@ -11,12 +13,19 @@ sealed class CharacterSearchComponentStates(val data: CharacterSearchData = Char
     data class CharactersSearched(
         val searchData: CharacterSearchData
     ) : CharacterSearchComponentStates(searchData)
+    data class ErrorState(val searchData: CharacterSearchData): CharacterSearchComponentStates(searchData)
 }
 
 data class CharacterSearchData(
     val queryResults: List<CharacterSummary> = listOf(),
-    val errorType: ErrorTypes = ErrorTypes.NONE
+    val errorType: CharacterSearchErrorTypes = CharacterSearchErrorTypes.NONE
 )
+
+enum class CharacterSearchErrorTypes(@StringRes val errorMessage: Int) {
+    NONE(R.string.no_error),
+    NO_MATCHING_RESULTS(R.string.no_matching_result),
+    NETWORK_ERROR(R.string.network_error_occured)
+}
 
 fun CharacterSearchComponentStates.reduceToLoadingState(): CharacterSearchData {
     return data
@@ -28,7 +37,7 @@ fun CharacterSearchComponentStates.reduceToCharactersLoadedState(characters: Lis
     )
 }
 
-fun CharacterSearchComponentStates.reduceToErrorState(errorType: ErrorTypes): CharacterSearchData {
+fun CharacterSearchComponentStates.reduceToErrorState(errorType: CharacterSearchErrorTypes): CharacterSearchData {
     return data.copy(
         errorType = errorType
     )

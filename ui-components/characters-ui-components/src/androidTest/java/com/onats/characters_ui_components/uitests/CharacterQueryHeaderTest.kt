@@ -2,6 +2,7 @@ package com.onats.characters_ui_components.uitests
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
@@ -12,7 +13,7 @@ import com.onats.common_ui.presentation.MVIIntent
 import org.junit.Rule
 import org.junit.Test
 
-@[ExperimentalFoundationApi ExperimentalMaterialApi]
+@[ExperimentalFoundationApi ExperimentalMaterialApi ExperimentalComposeUiApi]
 class CharacterQueryHeaderTest {
     
     @get:Rule

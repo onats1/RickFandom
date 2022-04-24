@@ -4,6 +4,7 @@ import com.onats.characters_ui_components.presentation.components.characterdispl
 import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterDisplayData
 import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchComponentStates
 import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchData
+import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchErrorTypes
 import com.onats.core_character.models.CharacterSummary
 
 val testCharacterSummary = CharacterSummary(
@@ -39,4 +40,14 @@ val characterSearchLoadingState = CharacterSearchComponentStates.LoadingState(Ch
 
 val charactersSearchLoadedState = CharacterSearchComponentStates.CharactersSearched(CharacterSearchData(
     characters
+))
+
+val charactersErrorState = CharacterDisplayComponentStates.ErrorState(CharacterDisplayData())
+
+val charactersSearchErrorState = CharacterSearchComponentStates.ErrorState(CharacterSearchData(
+    errorType = CharacterSearchErrorTypes.NETWORK_ERROR
+))
+
+val characterNotFoundErrorState = CharacterSearchComponentStates.ErrorState(CharacterSearchData(
+    errorType = CharacterSearchErrorTypes.NO_MATCHING_RESULTS
 ))

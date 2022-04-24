@@ -12,7 +12,7 @@ sealed class CharacterDisplayComponentStates(val data: CharacterDisplayData = Ch
     data class ExistingState(val characterData: CharacterDisplayData): CharacterDisplayComponentStates(characterData)
     data class CharactersLoaded(val characterData: CharacterDisplayData) :
         CharacterDisplayComponentStates(characterData)
-    data class ErrorState(val error: ErrorTypes): CharacterDisplayComponentStates()
+    data class ErrorState(val characterData: CharacterDisplayData): CharacterDisplayComponentStates(characterData)
 }
 
 data class CharacterDisplayData(
@@ -20,7 +20,7 @@ data class CharacterDisplayData(
     val errorData: ErrorTypes = ErrorTypes.NONE
 )
 
-enum class ErrorTypes(@StringRes errorMessage: Int) {
+enum class ErrorTypes(@StringRes val errorMessage: Int) {
     NONE(R.string.no_error),
     NETWORK_ERROR(R.string.network_error_occured)
 }
