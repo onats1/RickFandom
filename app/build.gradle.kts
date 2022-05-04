@@ -88,3 +88,4 @@ dependencies {
     androidTestImplementation(TestDependencies.ESPRESSO)
     androidTestImplementation(TestDependencies.COMPOSE_UI)
 }
+
