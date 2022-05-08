@@ -5,7 +5,6 @@ plugins {
 }
 
 android {
-
     compileSdk = DefaultConfig.COMPILE_SDK_VERSION
     buildToolsVersion = Versions.BUILD_TOOLS_VERSION
 
@@ -26,14 +25,12 @@ android {
 dependencies {
 
     kotlinDependencies()
-    networkDependencies()
     implementation(project(CoreModules.CORE_COMMON_MODULE))
-    implementation(project(CoreModules.CORE_CHARACTERS_MODULE))
+    implementation(project(CoreModules.CORE_EPISODES_MODULE))
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)
 
     testImplementation (TestDependencies.MOCKITO)
     truthTestDependencies()
     junitTestDependencies()
-    androidTestImplementation(TestDependencies.ESPRESSO)
-}
+    androidTestImplementation(TestDependencies.ESPRESSO)}
