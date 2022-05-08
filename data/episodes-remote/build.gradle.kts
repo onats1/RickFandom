@@ -2,10 +2,15 @@ plugins {
     androidLibrary
     kotlinAndroid
     kotlinKapt
+    graphqlPlugin
 }
 
-android {
+apollo {
+    packageName.set("com.onats.episodes-remote")
+}
 
+
+android {
     compileSdk = DefaultConfig.COMPILE_SDK_VERSION
     buildToolsVersion = Versions.BUILD_TOOLS_VERSION
 
@@ -26,13 +31,15 @@ android {
 dependencies {
 
     kotlinDependencies()
-    networkDependencies()
+    daggerDependencies()
+    implementation(project(CoreAndroidModules.CORE_ANDROID_COMMON_MODULE))
+    implementation(project(CoreModules.CORE_EPISODES_MODULE))
     implementation(project(CoreModules.CORE_COMMON_MODULE))
-    implementation(project(CoreModules.CORE_CHARACTERS_MODULE))
+    implementation(Dependencies.GRAPH_QL)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL_COMPONENTS)
 
-    testImplementation (TestDependencies.MOCKITO)
+    testImplementation(TestDependencies.MOCKITO)
     truthTestDependencies()
     junitTestDependencies()
     androidTestImplementation(TestDependencies.ESPRESSO)

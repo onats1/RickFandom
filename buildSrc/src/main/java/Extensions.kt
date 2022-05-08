@@ -16,5 +16,8 @@ val PluginDependenciesSpec.kotlinKapt: PluginDependencySpec
 val PluginDependenciesSpec.daggerAndroidPlugin: PluginDependencySpec
     get() = id("dagger.hilt.android.plugin")
 
+val PluginDependenciesSpec.graphqlPlugin: PluginDependencySpec
+    get() = id("com.apollographql.apollo3").version("3.3.0")
+
 
 

@@ -20,8 +20,10 @@
             <option value="$PROJECT_DIR$/coreandroid" />
             <option value="$PROJECT_DIR$/coreandroid/common" />
             <option value="$PROJECT_DIR$/coreandroid/core-android-characters" />
+            <option value="$PROJECT_DIR$/coreandroid/core-android-episodes" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/characters-remote" />
+            <option value="$PROJECT_DIR$/data/episodes-remote" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/characters-domain" />
             <option value="$PROJECT_DIR$/features" />

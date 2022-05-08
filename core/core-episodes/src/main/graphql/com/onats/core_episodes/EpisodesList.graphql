@@ -1,0 +1,15 @@
+query Episodes {
+    episodes {
+        episode: results {
+            name
+            air_date
+            episode
+            id
+            characters {
+                name
+                image
+                species
+            }
+        }
+    }
+}

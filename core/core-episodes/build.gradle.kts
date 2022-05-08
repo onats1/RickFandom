@@ -1,12 +1,12 @@
 plugins {
     id("java-library")
     id("kotlin")
-    id("com.apollographql.apollo3").version("3.2.1")
+    id("com.apollographql.apollo3").version("3.3.0")
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 apollo {
@@ -14,5 +14,8 @@ apollo {
 }
 
 dependencies {
-    implementation("com.apollographql.apollo3:apollo-runtime:3.3.0")
+    implementation(project(CoreModules.CORE_COMMON_MODULE))
+    implementation(Dependencies.GRAPH_QL)
+    implementation(Dependencies.KOTLIN_COROUTINES)
+    implementation(Dependencies.KOTLIN_STD_LIB)
 }

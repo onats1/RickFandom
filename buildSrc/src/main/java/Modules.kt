@@ -8,6 +8,7 @@ object FeatureModules {
 object CoreModules {
     const val CORE_COMMON_MODULE = ":core:common"
     const val CORE_CHARACTERS_MODULE = ":core:core-character"
+    const val CORE_EPISODES_MODULE = ":core:core-episodes"
 }
 
 object CoreAndroidModules {
@@ -17,6 +18,7 @@ object CoreAndroidModules {
 
 object DataModules {
     const val CHARACTERS_REMOTE_MODULE = ":data:characters-remote"
+    const val EPISODES_REMOTE_MODULE = ":data:episodes-remote"
 }
 
 object DomainModules {
