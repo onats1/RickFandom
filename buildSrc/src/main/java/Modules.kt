@@ -23,6 +23,7 @@ object DataModules {
 
 object DomainModules {
     const val CHARACTERS_DOMAIN_MODULE = ":domain:characters-domain"
+    const val EPISODES_DOMAIN_MODULE = ":domain:episodes-domain"
 }
 
 object UIModules {

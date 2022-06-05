@@ -1,6 +1,6 @@
 package com.onats.characters_ui_components.fakes
 
-import com.onats.characters_ui_components.presentation.components.demoCharacterSummary
+import com.onats.characters_ui_components.components.demoCharacterSummary
 import com.onats.core_character.models.Character
 import com.onats.core_character.models.CharacterSummary
 import com.onats.core_character.models.Location

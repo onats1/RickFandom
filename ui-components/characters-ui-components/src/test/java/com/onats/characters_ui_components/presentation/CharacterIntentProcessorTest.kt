@@ -4,22 +4,16 @@ import com.google.common.truth.Truth.assertThat
 import com.onats.characters_ui_components.fakes.GetAllCharactersUseCaseMock
 import com.onats.characters_ui_components.fakes.SearchCharactersUseCaseMock
 import com.onats.characters_ui_components.fakes.testCharactersSummary
-import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterDisplayComponentStates
-import com.onats.characters_ui_components.presentation.components.characterdisplaycomponent.characterdisplaystates.CharacterDisplayData
-import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchComponentStates
-import com.onats.characters_ui_components.presentation.components.charactersearchresults.charactersearchresultstate.CharacterSearchErrorTypes
+import com.onats.characters_ui_components.components.characterdisplaycomponent.characterdisplaystates.CharacterDisplayComponentStates
+import com.onats.characters_ui_components.components.characterdisplaycomponent.characterdisplaystates.CharacterDisplayData
+import com.onats.characters_ui_components.components.charactersearchresults.charactersearchresultstate.CharacterSearchErrorTypes
 import com.onats.characters_ui_components.presentation.intents.CharacterIntentProcessor
 import com.onats.characters_ui_components.presentation.intents.ExecuteQuery
 import com.onats.characters_ui_components.presentation.intents.LoadCharacters
 import com.onats.characters_ui_components.presentation.intents.QueryInProgress
-import com.onats.common.DomainResult
-import com.onats.core_character.models.Character
 import com.onats.core_character.usecases.GetAllCharactersUseCase
-import com.onats.core_character.usecases.SearchQueryRequest
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.flow
 import org.junit.Test
-import org.mockito.Mockito.`when`
 
 
 class CharacterIntentProcessorTest {

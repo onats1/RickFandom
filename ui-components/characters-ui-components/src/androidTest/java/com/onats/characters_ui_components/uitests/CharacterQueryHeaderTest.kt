@@ -7,7 +7,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import com.onats.characters_ui_components.presentation.CharacterViewModel
-import com.onats.characters_ui_components.presentation.components.characterqueryfieldcomponent.CharacterQueryHeader
+import com.onats.characters_ui_components.components.characterqueryfieldcomponent.CharacterQueryHeader
 import com.onats.characters_ui_components.screens.CharactersScreen
 import com.onats.common_ui.presentation.MVIIntent
 import org.junit.Rule
